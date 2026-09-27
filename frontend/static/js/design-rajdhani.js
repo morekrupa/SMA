@@ -1,11 +1,12 @@
 /**
- * Design 1: Rajdhani Heritage Carpet Grid Template Renderer
+ * Design 1: Lumina Ambient Studio Template Renderer
  * Reference style: rajdhanicarpets.com/?folder=rajdhani-digital-carpets
+ * Adapted for Designer Table Lamps & Ambient Architectural Lighting
  */
 
 window.RajdhaniDesign = {
   name: "rajdhani",
-  title: "Rajdhani Heritage Carpet Grid",
+  title: "Lumina Ambient Showcase (Warm Gold & Glass)",
   themeClass: "theme-rajdhani",
 
   renderCategories(categories, activeSlug) {
@@ -14,7 +15,7 @@ window.RajdhaniDesign = {
       <div class="raj-folders-wrapper">
         <div class="raj-folders-container">
           <div class="raj-folder-pill ${isAll ? 'active' : ''}" data-cat-slug="">
-            <span>📁 All Carpets</span>
+            <span>💡 All Lighting</span>
           </div>
     `;
 
@@ -22,7 +23,7 @@ window.RajdhaniDesign = {
       const active = (cat.slug === activeSlug) ? "active" : "";
       html += `
         <div class="raj-folder-pill ${active}" data-cat-slug="${cat.slug}" data-cat-id="${cat.id}">
-          <span>📁 ${cat.name}</span>
+          <span>💡 ${cat.name}</span>
           <span class="raj-folder-badge">${cat.product_count}</span>
         </div>
       `;
@@ -50,7 +51,7 @@ window.RajdhaniDesign = {
         </button>
 
         <button class="raj-wishlist-trigger ${isWishlisted ? 'active' : ''}" 
-                title="${isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}"
+                title="${isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}" 
                 data-action="toggle-wishlist">
           ${isWishlisted ? '♥' : '♡'}
         </button>
@@ -67,14 +68,14 @@ window.RajdhaniDesign = {
         </div>
 
         <div class="raj-card-body">
-          <div class="raj-category-tag">${product.category_name || 'Carpet'}</div>
+          <div class="raj-category-tag">${product.category_name || 'Table Lamp'}</div>
           <h3 class="raj-title" data-action="open-detail">${product.name}</h3>
 
           <div class="raj-pricing">
             <span class="raj-price">₹${product.price.toLocaleString('en-IN')}</span>
             ${hasDiscount ? `<span class="raj-reg-price">₹${product.regular_price.toLocaleString('en-IN')}</span>` : ''}
             <span class="raj-stock-badge ${isInstock ? 'instock' : 'outofstock'}">
-              ${isInstock ? 'In Stock' : 'Custom Order'}
+              ${isInstock ? 'In Stock' : 'Pre-Order'}
             </span>
           </div>
 

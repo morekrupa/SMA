@@ -1,4 +1,4 @@
-# Catalog Maker: High-Speed Product Catalog Platform
+# Lumina Studio: High-Speed Product Catalog Platform (Designer Table Lamps & Ambient Lighting)
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)](https://python.org)
@@ -6,9 +6,11 @@
 [![WhatsApp Enquiry](https://img.shields.io/badge/WhatsApp-Multi--Product%20Enquiry-25D366?logo=whatsapp&logoColor=white)](https://whatsapp.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Catalog Maker** is an ultra-fast, mobile-first product catalog platform engineered for high conversion via WhatsApp. It imports product data from external e-commerce systems (**Shopify REST/GraphQL API** and **WooCommerce REST API v3**), stores it in a central, optimized database, and serves a lightning-fast internal API with sub-10ms response latency.
+**Lumina Studio** is an ultra-fast, mobile-first product catalog platform for designer table lamps, sculptural bedside lighting, and ambient fixtures, engineered for high customer conversion via WhatsApp. 
 
-Inspired by the reference experience of [Rajdhani Digital Carpets](https://rajdhanicarpets.com/?folder=rajdhani-digital-carpets).
+It imports product data from external e-commerce systems (**Shopify REST/GraphQL API** and **WooCommerce REST API v3**), stores it in a central, optimized database, and serves a lightning-fast internal API with sub-10ms response latency.
+
+Built following the speed and interaction principles of the reference experience ([Rajdhani Digital Carpets](https://rajdhanicarpets.com/?folder=rajdhani-digital-carpets)) applied to modern luxury lighting and architectural lamps.
 
 ---
 
@@ -28,14 +30,14 @@ Inspired by the reference experience of [Rajdhani Digital Carpets](https://rajdh
 
 ## 1. Core Architecture & Principles
 
-The customer-facing catalog **never** makes live calls to Shopify or WooCommerce. All customer queries hit the optimized internal database via the Catalog API.
+The customer-facing catalog **never** makes live calls to external Shopify or WooCommerce APIs during customer browsing. All queries hit the optimized internal database via the internal Catalog API.
 
 ```mermaid
 flowchart TD
     subgraph External Sources
         S1["Shopify Store (REST / GraphQL API)"]
         S2["WooCommerce Store (REST API v3)"]
-        S3["Simulated Live Sandbox Stores"]
+        S3["Simulated Live Sandbox Endpoints"]
     end
 
     subgraph Sync Engine
@@ -50,12 +52,12 @@ flowchart TD
 
     subgraph Internal Catalog API
         API["FastAPI High-Speed Service<br/>(Sub-10ms, Gzip, ETag, Field Projection)"]
-        AI["Gemini / Groq AI Semantic Concierge"]
+        AI["Gemini / Groq AI Lighting Concierge"]
     end
 
     subgraph Customer Frontend
-        D1["Design 1: Rajdhani Heritage Grid<br/>(Folder Pills, Luxury Gold & Charcoal)"]
-        D2["Design 2: Nordic Minimalist<br/>(Clean Editorial, High Density)"]
+        D1["Design 1: Lumina Ambient Showcase<br/>(Warm Gold, Fluted Glass & Travertine)"]
+        D2["Design 2: Nordic Minimalist Studio<br/>(Architectural Clean Lines, High Density)"]
         WA["WhatsApp Multi-Product Enquiry<br/>(Sticky Tray + Exact Template)"]
         WL["No-Login Wishlist (localStorage)"]
         LB["Touch-Friendly Zoom Lightbox"]
@@ -83,10 +85,10 @@ flowchart TD
 
 ## 2. Key Features
 
-- **Mandatory 100+ Demonstration Products:** Pre-seeded with 55+ authentic Shopify carpet items and 55+ WooCommerce carpet items (110+ products across 10 rich categories).
-- **Differential Sync & Hashing:** Computes deterministic SHA-256 hashes of prices, stock, descriptions, and images. Unchanged items are skipped; updated items are logged with field-level diffs.
+- **Mandatory 100+ Demonstration Products:** Pre-seeded with 55+ authentic Shopify lighting products and 55+ WooCommerce lighting products (105+ lamps across 10 categories including Travertine Sculptural Lamps, Cordless Touch Bedside Lights, Fluted Amber Glass Lamps, Industrial Edison Lamps, and Mushroom Accent Lights).
+- **Differential Sync & Hashing:** Computes deterministic SHA-256 hashes of prices, stock, descriptions, and images. Unchanged items are skipped; updated items are logged with field-level diffs in 30ms.
 - **Zero Customer Login:** Customers browse, filter, save wishlists, and initiate single or bulk WhatsApp enquiries without account friction.
-- **WhatsApp Multi-Product Enquiry:** Select multiple items across categories; open WhatsApp with a pre-filled, numbered summary.
+- **WhatsApp Multi-Product Enquiry:** Select multiple lamps across categories; open WhatsApp with a pre-filled, numbered summary.
 - **Full Admin Control:** Real-time stock toggles, inline price editing, category ordering, and sync triggers.
 
 ---
@@ -95,12 +97,12 @@ flowchart TD
 
 The platform supports multiple pluggable frontend themes served by the same API:
 
-| Feature | Design 1: Rajdhani Heritage Grid | Design 2: Nordic Minimalist & Editorial |
+| Feature | Design 1: Lumina Ambient Showcase | Design 2: Nordic Minimalist Studio |
 | :--- | :--- | :--- |
-| **Aesthetic** | Deep luxury charcoal, gold/amber accents, rich textures | Crisp white, cool slate borders, Swiss typography |
-| **Category Nav** | Folder-style carousel pills with product counts | Minimalist uppercase filter chip rail |
-| **Product Cards** | Prominent size badges (5x8, 8x10), specs summary | High-density vertical editorial lookbook cards |
-| **Reference** | Inspired by `rajdhanicarpets.com` | Scandinavian boutique & modern interior ateliers |
+| **Aesthetic** | Deep luxury charcoal, warm gold glow, rich brass & glass textures | Crisp white, cool slate borders, Swiss typography |
+| **Category Nav** | Folder-style carousel pills with lamp counts | Minimalist uppercase filter chip rail |
+| **Product Cards** | Prominent finish badges, Kelvin specs, dimming options | High-density vertical editorial studio cards |
+| **Reference** | Inspired by `rajdhanicarpets.com` reference UX | Scandinavian modern lighting & architectural studios |
 
 > **Dynamic Switcher:** Change the active design in **Admin > Design & Settings**, or directly in the customer header dropdown, or via URL parameter `?design=nordic` / `?design=rajdhani`.
 
@@ -111,14 +113,14 @@ The platform supports multiple pluggable frontend themes served by the same API:
 Per **Section 11** of the assignment, WhatsApp is the primary conversion channel:
 
 1. **Selection:** Customer taps `+` on any product card or in the detail modal.
-2. **Dock:** A sticky bottom tray shows: `🛒 3 Carpets Selected | Enquire on WhatsApp 💬`.
+2. **Dock:** A sticky bottom tray shows: `💡 3 Lamps Selected | Enquire on WhatsApp 💬`.
 3. **Message Generation:** Generates the exact requested pre-filled format:
 
 ```text
-Hi, I am interested in the following products:
-1. Royal Isfahan Masterpiece Pure Silk Carpet - http://localhost:8000/#product=shp_81001
-2. Antique Tabriz Floral Medallion Rug - http://localhost:8000/#product=shp_81002
-3. Bespoke Royal Jaipur Hand-Tufted Wool Rug - http://localhost:8000/#product=wc_501
+Hi, I am interested in the following lighting fixtures:
+1. Aura Sculptural Travertine & Frosted Glass Table Lamp - http://localhost:8000/#product=shp_81001
+2. Kyoto Ribbed Terracotta Table Lamp - http://localhost:8000/#product=shp_81002
+3. Bespoke Fluted Amber Glass & Walnut Base Table Lamp - http://localhost:8000/#product=wc_501
 Please share more details and pricing.
 ```
 
@@ -172,21 +174,21 @@ Follow these 18 steps matching **Section 19** of the Examination Assignment:
 | Step | Action | Where / What to Demonstrate |
 | :---: | :--- | :--- |
 | **1** | **Show Admin Panel** | Navigate to `http://localhost:8000/admin`. View dashboard stats, sync status, and navigation tabs. |
-| **2** | **Add / Edit Products** | Go to **Product Catalog** tab. Click **＋ Add Product** to add a new carpet, or click **Edit** on an existing one. |
-| **3** | **Create Categories** | Go to **Categories** tab. Enter a new category name (e.g. *Royal Turkish Runners*) and click **Create Category**. |
+| **2** | **Add / Edit Products** | Go to **Lighting Catalog** tab. Click **＋ Add Lamp / Light** to add a new lamp, or click **Edit** on an existing one. |
+| **3** | **Create Categories** | Go to **Categories** tab. Enter a new category name (e.g. *Cordless Bedside Lights*) and click **Create Category**. |
 | **4** | **Change Pricing & Availability** | In the product table, edit the price inline and click **Save**. Toggle the **Stock** switch to flip between *In Stock* and *Out of Stock*. |
-| **5** | **Import 50+ Shopify Products** | In **Source Sync & Diff** tab, click **Import / Sync Shopify Catalog**. Progress bar shows 55 items loaded. |
-| **6** | **Import 50+ WooCommerce Products** | Click **Import / Sync WooCommerce Catalog**. Progress bar shows 55 items loaded. |
-| **7** | **Show Internal Database After Import** | Check the **Product Catalog** tab and DB stats: 110+ items stored locally in SQLite with images and specs. |
-| **8** | **Run Synchronization** | Click **⚡ Sync All Sources**. Observe diff engine reporting 0 created, 0 updated, 110 unchanged (idempotent, no duplicates). |
-| **9** | **Show Source Product Update Reflected** | In **Source Sync > Live Simulation**, set new price (e.g. ₹199,999) on Shopify product #81001. Click **Apply Change to External Source**, then click **Run Sync**. Notice 1 product updated and price reflected in the catalog and audit log! |
-| **10** | **Demonstrate Two Catalog Designs** | View public catalog at `http://localhost:8000/`. Compare Design 1 (*Rajdhani Heritage*) and Design 2 (*Nordic Minimalist*). |
+| **5** | **Import 50+ Shopify Products** | In **Source Sync & Diff** tab, click **Import / Sync Shopify Catalog**. Progress bar shows 55 lighting items loaded. |
+| **6** | **Import 50+ WooCommerce Products** | Click **Import / Sync WooCommerce Catalog**. Progress bar shows 55 lighting items loaded. |
+| **7** | **Show Internal Database After Import** | Check the **Lighting Catalog** tab and DB stats: 105+ items stored locally in SQLite with images and specs. |
+| **8** | **Run Synchronization** | Click **⚡ Sync All Sources**. Observe diff engine reporting 0 created, 0 updated, 105 unchanged (idempotent, no duplicates). |
+| **9** | **Show Source Product Update Reflected** | In **Source Sync > Live Simulation**, set new price (e.g. ₹12,999) on Shopify lamp #81001. Click **Apply Change to External Source**, then click **Run Sync**. Notice 1 product updated and price reflected in the catalog and audit log! |
+| **10** | **Demonstrate Two Catalog Designs** | View public catalog at `http://localhost:8000/`. Compare Design 1 (*Lumina Ambient Showcase*) and Design 2 (*Nordic Minimalist Studio*). |
 | **11** | **Switch Active Design from Backend** | In **Admin > Design & Settings**, select *Nordic Minimalist* and click **Save Settings**. Reload catalog to see the layout transform. |
-| **12** | **Browse Categories & Products** | Click folder pills (*Vintage Persian*, *Moroccan Berber*, *Kashmir Silk*). Observe instant sub-15ms category switching. |
-| **13** | **Open Product & Image Lightbox** | Click any carpet card to open the pop-up modal. Click **🔍 Full Lightbox** to open full-screen pinch/zoom view with arrow keys. |
-| **14** | **Use Wishlist** | Tap the heart icon (`♥`) on any 2 carpets. Open the header wishlist to see saved items persist across reloads without login. |
-| **15** | **Select Multiple Products** | Tap the `＋` selection trigger on 3 different carpets. |
-| **16** | **Generate WhatsApp Enquiry** | Observe sticky bottom dock showing `3 Carpets Selected`. Click **Enquire on WhatsApp** to verify pre-filled message format. |
+| **12** | **Browse Categories & Products** | Click category pills (*Sculptural Table Lamps*, *Ceramic & Stoneware*, *Mushroom Accent Lamps*). Observe instant sub-15ms category switching. |
+| **13** | **Open Product & Image Lightbox** | Click any lamp card to open the pop-up modal. Click **🔍 Full Lightbox** to open full-screen pinch/zoom view with arrow keys. |
+| **14** | **Use Wishlist** | Tap the heart icon (`♥`) on any 2 lamps. Open the header wishlist to see saved items persist across reloads without login. |
+| **15** | **Select Multiple Products** | Tap the `＋` selection trigger on 3 different lamps. |
+| **16** | **Generate WhatsApp Enquiry** | Observe sticky bottom dock showing `3 Lamps Selected`. Click **Enquire on WhatsApp** to verify pre-filled message format. |
 | **17** | **Demonstrate Mobile View** | Open DevTools (`Ctrl+Shift+M`) in iPhone/Android mode. Verify touch-friendly buttons, bottom sheets, and responsive layout. |
 | **18** | **Demonstrate Skeleton / Fast Navigation** | Hard refresh (`Ctrl+F5`) with network throttling. Observe skeleton shimmer cards and sub-second load times. |
 
@@ -203,7 +205,6 @@ The platform is container-ready and can be deployed with one command to any free
    - **Environment:** `Python 3`
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `python run.py`
-4. The deployment URL will be live immediately with persistent SQLite storage.
 
 ### Deploy with Docker / Fly.io
 ```dockerfile
@@ -218,7 +219,6 @@ CMD ["python", "run.py"]
 
 ### Instant Public URL via Cloudflare Tunnel / Localtunnel
 ```bash
-# Instant public HTTPS URL for evaluator testing
 npx localtunnel --port 8000
 # or
 cloudflared tunnel --url http://localhost:8000
@@ -230,7 +230,7 @@ cloudflared tunnel --url http://localhost:8000
 
 - ✅ **Automatic Scheduled Background Sync:** Background worker runs periodic sync at configurable intervals.
 - ✅ **Audit Trail & Change History:** Every price edit, stock toggle, and sync diff is logged with timestamps and old/new values.
-- ✅ **AI Natural Language Search Concierge:** Free-tier Gemini/Groq integration (`/api/v1/catalog/ai-search`) providing conversational carpet recommendations.
+- ✅ **AI Natural Language Search Concierge:** Free-tier Gemini/Groq integration (`/api/v1/catalog/ai-search`) providing conversational lighting and kelvin recommendations.
 - ✅ **Catalog Analytics:** Tracks product views, wishlist additions, and single/multi WhatsApp enquiries.
 - ✅ **Graceful Offline & Image Fallback:** High-performance SVG placeholders prevent layout breaks if external images fail.
 - ✅ **PWA Manifest & Mobile Viewport:** Add-to-homescreen capability with native app feel.
@@ -245,4 +245,4 @@ cloudflared tunnel --url http://localhost:8000
 - **Testing:** Python `unittest` test suite covering DB integrity, diff hashing, deduplication, and WhatsApp message formatting.
 
 ---
-*Catalog Maker — Developed for High-Speed Product Presentation & Frictionless WhatsApp Conversion.*
+*Lumina Studio — Developed for High-Speed Designer Lighting Presentation & Frictionless WhatsApp Conversion.*

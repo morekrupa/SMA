@@ -1,12 +1,11 @@
 /**
- * Design 2: Nordic Minimalist & Editorial Boutique Renderer
- * Complies with Section 8:
- * "Students must demonstrate at least two substantially different catalog designs."
+ * Design 2: Nordic Minimalist Studio Renderer
+ * Tailored for Architectural Lighting, Clean Studio Presentation & High-Density Browsing
  */
 
 window.NordicDesign = {
   name: "nordic",
-  title: "Nordic Minimalist & Editorial",
+  title: "Nordic Minimalist & Studio Lookbook",
   themeClass: "theme-nordic",
 
   renderCategories(categories, activeSlug) {
@@ -15,7 +14,7 @@ window.NordicDesign = {
       <div class="nordic-filter-rail">
         <div class="nordic-filter-list">
           <button class="nordic-chip ${isAll ? 'active' : ''}" data-cat-slug="">
-            ALL COLLECTIONS
+            ALL FIXTURES
           </button>
     `;
 

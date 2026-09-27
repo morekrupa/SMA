@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Portal | Catalog Maker</title>
+  <title>Admin Portal | Lumina Studio Lighting</title>
   <link rel="stylesheet" href="/static/css/common.css" />
   <link rel="stylesheet" href="/static/css/admin.css" />
 </head>
@@ -12,12 +12,12 @@
   <!-- Sidebar -->
   <aside class="admin-sidebar">
     <div class="admin-sidebar-header">
-      <div style="width:32px; height:32px; background:#3b82f6; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:800;">
-        CM
+      <div style="width:32px; height:32px; background:#3b82f6; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem;">
+        💡
       </div>
       <div>
-        <h2>Catalog Maker</h2>
-        <span>Admin Engine</span>
+        <h2>Lumina Studio</h2>
+        <span>Lighting Admin Engine</span>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <span>📊</span> Dashboard Overview
       </button>
       <button class="admin-nav-item" data-tab="products">
-        <span>📦</span> Product Catalog
+        <span>📦</span> Lighting Catalog
       </button>
       <button class="admin-nav-item" data-tab="categories">
         <span>📁</span> Categories
@@ -54,7 +54,7 @@
     <!-- Topbar -->
     <header class="admin-topbar">
       <div class="admin-topbar-title">
-        <h1 id="admin-page-title">Catalog Administration</h1>
+        <h1 id="admin-page-title">Lighting Catalog Administration</h1>
       </div>
       <div class="admin-topbar-actions">
         <button id="btn-sync-all" class="btn btn-primary" style="font-size:0.85rem; min-height:38px;">
@@ -69,7 +69,7 @@
       <section id="tab-view-overview" class="tab-view">
         <div class="admin-stats-grid">
           <div class="stat-card">
-            <span class="stat-card-title">Total Carpets</span>
+            <span class="stat-card-title">Total Lighting Fixtures</span>
             <div id="stat-total-products" class="stat-card-val">0</div>
             <div class="stat-card-sub">In central database</div>
           </div>
@@ -129,7 +129,7 @@
         <div class="admin-card">
           <div class="admin-card-header">
             <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
-              <input type="text" id="admin-search-products" class="form-input" placeholder="Search name or SKU..." style="width:240px;" />
+              <input type="text" id="admin-search-products" class="form-input" placeholder="Search lamp name or SKU..." style="width:240px;" />
               <select id="admin-source-filter" class="form-select" style="width:160px;">
                 <option value="">All Sources</option>
                 <option value="shopify">Shopify Only</option>
@@ -138,7 +138,7 @@
               </select>
             </div>
             <button id="btn-new-product" class="btn btn-primary" style="font-size:0.85rem; min-height:38px;">
-              ＋ Add Product
+              ＋ Add Lamp / Light
             </button>
           </div>
 
@@ -147,7 +147,7 @@
               <thead>
                 <tr>
                   <th>Image</th>
-                  <th>Product Details</th>
+                  <th>Lamp Details</th>
                   <th>Category</th>
                   <th>Price (₹)</th>
                   <th>Stock Status</th>
@@ -182,11 +182,11 @@
               <form id="category-form">
                 <div class="form-group">
                   <label class="form-label">Category Name</label>
-                  <input type="text" id="cat-name" class="form-input" required placeholder="e.g. Modern Silk Runners" />
+                  <input type="text" id="cat-name" class="form-input" required placeholder="e.g. Cordless Bedside Lights" />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Slug (Optional)</label>
-                  <input type="text" id="cat-slug" class="form-input" placeholder="e.g. modern-silk-runners" />
+                  <input type="text" id="cat-slug" class="form-input" placeholder="e.g. cordless-bedside-lights" />
                 </div>
                 <button type="submit" class="btn btn-primary" style="width:100%; min-height:40px;">
                   Create Category
@@ -197,7 +197,7 @@
 
           <div class="admin-card">
             <div class="admin-card-header">
-              <h3 class="admin-card-title">Existing Categories</h3>
+              <h3 class="admin-card-title">Lighting Categories</h3>
             </div>
             <div class="admin-table-wrapper">
               <table class="admin-table">
@@ -223,7 +223,7 @@
       <section id="tab-view-sync" class="tab-view" style="display:none;">
         <div class="admin-card">
           <div class="admin-card-header">
-            <h3 class="admin-card-title">External E-Commerce Connectors</h3>
+            <h3 class="admin-card-title">External E-Commerce Lighting Connectors</h3>
           </div>
           <div class="admin-card-body">
             <p style="color:#64748b; font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">
@@ -236,10 +236,10 @@
               <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
                   <h4 style="font-size:1rem; font-weight:700;">Shopify API Integration</h4>
-                  <span class="badge badge-source-shopify">55+ Products Ready</span>
+                  <span class="badge badge-source-shopify">55+ Lighting Products</span>
                 </div>
                 <p style="font-size:0.85rem; color:#64748b; margin-bottom:1rem;">
-                  Connects to Shopify <code>/admin/api/2024-01/products.json</code>. Imports full product catalog, variants, and high-res imagery.
+                  Connects to Shopify <code>/admin/api/2024-01/products.json</code>. Imports table lamps, kelvin specs, dimming options, and imagery.
                 </p>
                 <button id="btn-sync-shopify" class="btn btn-outline" style="width:100%; border-color:#16a34a; color:#15803d; font-weight:700;">
                   🔄 Import / Sync Shopify Catalog
@@ -250,10 +250,10 @@
               <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
                   <h4 style="font-size:1rem; font-weight:700;">WooCommerce API Integration</h4>
-                  <span class="badge badge-source-wc">55+ Products Ready</span>
+                  <span class="badge badge-source-wc">55+ Lighting Products</span>
                 </div>
                 <p style="font-size:0.85rem; color:#64748b; margin-bottom:1rem;">
-                  Connects to WooCommerce <code>/wp-json/wc/v3/products</code>. Imports attributes, metadata, knots, and carpet dimensions.
+                  Connects to WooCommerce <code>/wp-json/wc/v3/products</code>. Imports attributes, bulb specs, lumens, and glass/metal finishes.
                 </p>
                 <button id="btn-sync-wc" class="btn btn-outline" style="width:100%; border-color:#4338ca; color:#4338ca; font-weight:700;">
                   🔄 Import / Sync WooCommerce Catalog
@@ -280,20 +280,20 @@
           </div>
           <div class="admin-card-body">
             <p style="color:#78350f; font-size:0.875rem; margin-bottom:1rem;">
-              Use this tool to simulate an external change in Shopify or WooCommerce (e.g., price reduction on the source store).
+              Use this tool to simulate an external change in Shopify or WooCommerce (e.g., promotional price reduction on external store).
               Then run synchronization to demonstrate diff detection and price updating in the internal catalog.
             </p>
             <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end;">
               <div class="form-group" style="margin-bottom:0; flex:1; min-width:180px;">
                 <label class="form-label">Target External Source</label>
                 <select id="sim-source" class="form-select">
-                  <option value="shopify">Shopify (#81001 Royal Isfahan Masterpiece)</option>
-                  <option value="woocommerce">WooCommerce (#501 Bespoke Royal Jaipur Rug)</option>
+                  <option value="shopify">Shopify (#81001 Aura Travertine Table Lamp)</option>
+                  <option value="woocommerce">WooCommerce (#501 Fluted Amber Glass Lamp)</option>
                 </select>
               </div>
               <div class="form-group" style="margin-bottom:0; flex:1; min-width:180px;">
                 <label class="form-label">New Simulated Price (₹)</label>
-                <input type="number" id="sim-price" class="form-input" value="199999" />
+                <input type="number" id="sim-price" class="form-input" value="12999" />
               </div>
               <button id="btn-simulate-source-change" class="btn btn-primary" style="min-height:42px; background:#d97706;">
                 ⚡ Apply Change to External Source
@@ -383,8 +383,8 @@
                   Choose the active design for the customer-facing mobile catalog. The same database and APIs seamlessly serve both designs.
                 </p>
                 <select id="setting-active-design" class="form-select" style="font-size:0.95rem; font-weight:700;">
-                  <option value="rajdhani">Design 1: Rajdhani Heritage Carpet Grid (Luxury Rug Showroom)</option>
-                  <option value="nordic">Design 2: Nordic Minimalist &amp; Editorial Boutique (Clean High-Density)</option>
+                  <option value="rajdhani">Design 1: Lumina Ambient Showcase (Warm Gold &amp; Glass)</option>
+                  <option value="nordic">Design 2: Nordic Minimalist &amp; Studio Lookbook (High-Density Modern)</option>
                 </select>
               </div>
 
@@ -435,7 +435,7 @@
           <input type="hidden" id="prod-modal-id" />
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Product Name *</label>
+              <label class="form-label">Lamp / Product Name *</label>
               <input type="text" id="prod-name" class="form-input" required />
             </div>
             <div class="form-group">
@@ -466,7 +466,7 @@
             <textarea id="prod-desc" class="form-textarea" rows="3"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%; min-height:44px;">
-            Save Product to Database
+            Save Lamp to Database
           </button>
         </form>
       </div>

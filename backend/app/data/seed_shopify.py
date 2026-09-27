@@ -1,5 +1,5 @@
 """
-Shopify Data Source Seed: 55+ Products formatted in the official Shopify REST Admin API format:
+Shopify Data Source Seed: 55+ Lighting & Lamp Products formatted in the official Shopify REST Admin API format:
 GET /admin/api/2024-01/products.json
 """
 
@@ -8,173 +8,174 @@ import json
 SHOPIFY_PRODUCTS = [
     {
         "id": 81001,
-        "title": "Royal Isfahan Masterpiece Pure Silk Carpet",
-        "body_html": "<p>A museum-grade hand-knotted pure mulberry silk carpet woven by master artisans in Isfahan. Features an intricate central medallion surrounded by arabesque floral motifs on an ivory and imperial crimson ground with 900+ KPSI (knots per square inch).</p>",
-        "vendor": "Rajdhani Artisans",
-        "product_type": "Hand-Knotted Silk Carpets",
-        "handle": "royal-isfahan-masterpiece-pure-silk-carpet",
+        "title": "Aura Sculptural Travertine & Frosted Glass Table Lamp",
+        "body_html": "<p>An architectural centerpiece carved from solid Italian travertine stone paired with a hand-blown frosted opal glass sphere. Emits a soft, ambient glow through an integrated 3-stage touch dimmer (2700K warm ambient light). Designed for serene modern living rooms, executive desks, and bedside sanctuaries.</p>",
+        "vendor": "Lumina Studio",
+        "product_type": "Sculptural Table Lamps",
+        "handle": "aura-sculptural-travertine-table-lamp",
         "created_at": "2024-01-10T08:00:00Z",
         "updated_at": "2024-02-15T12:30:00Z",
         "published_at": "2024-01-11T10:00:00Z",
         "status": "active",
-        "tags": "silk, isfahan, antique, luxury, medallion, hand-knotted",
+        "tags": "table lamp, travertine, modern, ambient, dimmable, warm led",
         "variants": [
             {
                 "id": 91001,
                 "product_id": 81001,
-                "title": "5 x 8 ft / Crimson Red",
-                "price": "145000.00",
-                "regular_price": "165000.00",
-                "sku": "SHP-ISF-01-5X8",
-                "inventory_quantity": 3,
-                "option1": "5 x 8 ft",
-                "option2": "Crimson Red"
+                "title": "Natural Roman Travertine / Warm White 2700K",
+                "price": "14500.00",
+                "regular_price": "18000.00",
+                "sku": "LUM-TRAV-01-NAT",
+                "inventory_quantity": 8,
+                "option1": "Natural Travertine",
+                "option2": "2700K Warm"
             },
             {
                 "id": 91002,
                 "product_id": 81001,
-                "title": "8 x 10 ft / Crimson Red",
-                "price": "240000.00",
-                "regular_price": "270000.00",
-                "sku": "SHP-ISF-01-8X10",
-                "inventory_quantity": 2,
-                "option1": "8 x 10 ft",
-                "option2": "Crimson Red"
+                "title": "Smoked Charcoal Travertine / Warm White 2700K",
+                "price": "16500.00",
+                "regular_price": "19500.00",
+                "sku": "LUM-TRAV-01-SMK",
+                "inventory_quantity": 4,
+                "option1": "Smoked Charcoal",
+                "option2": "2700K Warm"
             }
         ],
-        "options": [{"name": "Size"}, {"name": "Color"}],
+        "options": [{"name": "Material Finish"}, {"name": "Color Temperature"}],
         "images": [
             {
                 "id": 70001,
                 "product_id": 81001,
-                "src": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-                "alt": "Royal Isfahan Masterpiece Pure Silk Carpet living room view",
+                "src": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
+                "alt": "Aura Sculptural Travertine Table Lamp styled on wooden credenza",
                 "width": 1200,
-                "height": 800
+                "height": 900
             },
             {
                 "id": 70002,
                 "product_id": 81001,
-                "src": "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
-                "alt": "Detail weave of Royal Isfahan Silk Carpet",
+                "src": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
+                "alt": "Travertine lamp detail texture and glowing opal sphere",
                 "width": 1200,
-                "height": 800
+                "height": 900
             }
         ],
         "metafields": [
-            {"key": "material", "value": "100% Pure Mulberry Silk on Silk Warp"},
-            {"key": "knot_count", "value": "900 Knots Per Square Inch"},
-            {"key": "origin", "value": "Isfahan, Persia"},
-            {"key": "pile_height", "value": "6 mm (Low Dense Pile)"}
+            {"key": "material", "value": "Solid Italian Travertine & Frosted Blown Glass"},
+            {"key": "bulb_type", "value": "Integrated Warm LED (CRI 95+)"},
+            {"key": "color_temperature", "value": "2700K Warm White (3-Step Touch Dimming)"},
+            {"key": "dimensions", "value": "Height 34cm x Base Diameter 16cm"},
+            {"key": "power_source", "value": "Braided Fabric Cord with USB-C / AC Adapter"}
         ]
     }
 ]
 
-# Generate 54 additional realistic, varied carpet items to reach 55 Shopify products total
-CARPET_COLLECTIONS = [
+# Generate 54 additional realistic designer lamps across popular lighting categories
+LIGHTING_COLLECTIONS = [
     {
-        "category": "Vintage Persian Rugs",
+        "category": "Ceramic & Stoneware Table Lamps",
         "names": [
-            "Antique Tabriz Floral Medallion Rug",
-            "Kashan Heritage Indigo Wool Rug",
-            "Nain Celestial Sky Blue Carpet",
-            "Qum Tree of Life Fine Weave",
-            "Heriz Geometric Tribal Village Rug",
-            "Bijar Iron Rug Ultra-Durable",
-            "Shiraz Nomadic Diamond Runner",
-            "Kerman Classic Rose Garland Rug",
-            "Sarouk Wine Red Luster Rug",
-            "Bakhtiari Garden Panel Carpet",
-            "Malayer Botanical Medallion Rug",
-            "Senneh Fine Tapestry Flatweave"
+            "Kyoto Ribbed Terracotta Table Lamp",
+            "Sienna Textured Ceramic Bedside Lamp",
+            "Nordic Oatmeal Glazed Pot Lamp",
+            "Moro Archival Raw Clay Table Lamp",
+            "Alabaster Vessel Ambient Lamp",
+            "Zuma Fluted White Stoneware Lamp",
+            "Earthy Olive Matte Ceramic Desk Lamp",
+            "Kanso Rounded Wabi-Sabi Clay Lamp",
+            "Sand Dune Hand-Thrown Pottery Lamp",
+            "Atlas Crater Textured Basalt Lamp",
+            "Pebble Contour Ceramic Table Lamp",
+            "Tulum Sunbaked Terracotta Night Lamp"
         ],
-        "material": "Highland Virgin Wool on Cotton Foundation",
-        "knots": "450-600 KPSI",
-        "origin": "Persia / Iran",
-        "base_price": 48000,
-        "image_seed": ["photo-1596178065887-1198b6148b2b", "photo-1600585154340-be6161a56a0c", "photo-1616486338812-3dadae4b4ace"]
+        "material": "Handcrafted Ceramic Stoneware & Linen Shade",
+        "bulb": "E27 Warm Amber LED (Included)",
+        "kelvin": "2700K Sunset Warmth",
+        "base_price": 7500,
+        "image_seed": ["photo-1517991104123-1d56a6e81ed9", "photo-1540932239986-30128078f3c5", "photo-1534349762230-e0cadf78f5da"]
     },
     {
-        "category": "Modern Minimalist Rugs",
+        "category": "Cordless & Portable Accent Lights",
         "names": [
-            "Nordic Linear Ivory Textured Area Rug",
-            "Aura Abstract Gradient Cloud Rug",
-            "Scandi Ribbed Neutral Wool Carpet",
-            "Kyoto Zen Sand Wavy Hand-Tufted Rug",
-            "Solstice Organic Pebble Wool Loop Rug",
-            "Minimalist Bauhaus Bauhaus Grid Carpet",
-            "Alabaster Serenity Plush Rug",
-            "Dune Warm Oat Minimalist Rug",
-            "Linear Mirage Charcoal Stripe Rug",
-            "Echo Neutral Hand-Spun Wool Rug",
-            "Copenhagen Dual-Tone Border Rug"
+            "Halo Portable Rechargeable Mushroom Lamp",
+            "Nomad Touch-Dimming Cordless Lantern",
+            "Aero Brushed Brass Battery Table Lamp",
+            "Pillar Minimalist Bar & Cafe Cordless Light",
+            "Sprout Silicone Touch Bedside Lamp",
+            "Lumen Magnetic Base Portable Light",
+            "Bistro Amber Glow Cordless Lamp",
+            "Orbita Floating Disc Touch Light",
+            "Clover Outdoor IP54 Dining Table Lamp",
+            "Solace Aluminum Wireless Night Lamp",
+            "Glide Minimalist Desk Wand Lamp"
         ],
-        "material": "New Zealand Wool & Natural Flax Linen",
-        "knots": "Hand-Tufted / 300 KPSI",
-        "origin": "Jaipur, India",
-        "base_price": 24000,
-        "image_seed": ["photo-1558882224-dda166733046", "photo-1513694203232-719a280e022f", "photo-1586023492125-27b2c045efd7"]
+        "material": "Anodized Aerospace Aluminum & Polycarbonate",
+        "bulb": "Lithium-Ion Rechargeable LED (18h Battery)",
+        "kelvin": "Stepless 2200K - 3000K Dimming",
+        "base_price": 5200,
+        "image_seed": ["photo-1543198126-a8ad8e47fb22", "photo-1507473885765-e6ed057f782c", "photo-1540555700478-4be289fbecef"]
     },
     {
-        "category": "Moroccan Berber & Tribal",
+        "category": "Mid-Century Brass & Opal Glass",
         "names": [
-            "Beni Ourain High-Pile Diamond Shag",
-            "Atlas Mountains Geometric Ochre Rug",
-            "Azilal Colorful Tribal Story Rug",
-            "Boujad Earthy Terracotta Wool Rug",
-            "Berber Zigzag High-Density Shag",
-            "Tazenakht Sun-Dyed Saffron Rug",
-            "High Atlas Monochromatic Tribal Rug",
-            "Zanafi Monochrome Flatweave Kilim",
-            "Marrakech Medina Textured Wool Rug",
-            "Sahara Nomadic Star Pattern Rug",
-            "Ouarzazate Sunset Toned Carpet"
+            "Atelier Spun Brass Twin-Globe Lamp",
+            "Gatsby Brushed Gold Art Deco Lamp",
+            "Mid-Century Arc Balance Table Lamp",
+            "Astral Polished Brass Eclipse Lamp",
+            "Equinox Dual Spherical Accent Lamp",
+            "Cosmo Brass Stem Floating Orb Lamp",
+            "Linear Bauhaus Brass Reading Lamp",
+            "Solarium Champagne Brass Desk Lamp",
+            "Vintage Milano Tripod Brass Lamp",
+            "Aura Saturn Ring Brass Accent Light",
+            "Regent Fluted Brass Column Lamp"
         ],
-        "material": "100% Unbleached High-Mountain Sheep Wool",
-        "knots": "Plush Berber Shag Weave (25mm Pile)",
-        "origin": "Middle Atlas, Morocco",
-        "base_price": 32000,
-        "image_seed": ["photo-1507652313519-d4e9174996dd", "photo-1538688525198-9b88f6f53126", "photo-1540518614846-7ede433c4ef8"]
+        "material": "Solid Spun Brass & Triple-Coated Opal Glass",
+        "bulb": "G9 Dimmable Warm LED Capsules",
+        "kelvin": "3000K Soft White (CRI 90)",
+        "base_price": 11800,
+        "image_seed": ["photo-1513506003901-1e6a229e2d15", "photo-1505691938895-1758d7feb511", "photo-1524484485831-a92ffc0de03f"]
     },
     {
-        "category": "Traditional Kashmir Silk",
+        "category": "Minimalist Japandi Paper & Wood",
         "names": [
-            "Srinagar Chinar Leaf Mulberry Silk Carpet",
-            "Kashmir Royal Peacock Medallion Rug",
-            "Gulmarg Spring Blossom Silk Tapestry",
-            "Pahalgam Mughal Hunting Scene Silk Rug",
-            "Dal Lake Shimmer Ivory Silk Carpet",
-            "Shalimar Floral Garland Silk Carpet",
-            "Pashmina Blend Royal Crimson Runner",
-            "Kashmiri Golden Amber Silk Rug",
-            "Hazratbal Antique Ivory Silk Carpet",
-            "Sonamarg Meadow Turquoise Silk Rug"
+            "Akari Inspired Rice Paper Lantern Lamp",
+            "Kyoto Natural Ash Wood Table Lamp",
+            "Origami Pleated Mulberry Paper Light",
+            "Bonsai Sculptural Walnut Desk Lamp",
+            "Washi Cloud Lantern Ambient Lamp",
+            "Zen Garden Bamboo Slatted Lamp",
+            "Sora Oval Japanese Paper Night Lamp",
+            "Hinoki Wood Scented Ambient Light",
+            "Tatami Geometrical Wood Frame Lamp",
+            "Minka Traditional Pleat Lantern"
         ],
-        "material": "100% Kashmir Mulberry Silk on Cotton",
-        "knots": "750-900 KPSI",
-        "origin": "Kashmir, India",
-        "base_price": 85000,
-        "image_seed": ["photo-1600121848594-d8644e57abab", "photo-1579656381226-5fc0f0100c3b", "photo-1513519245088-0e12902e5a38"]
+        "material": "Handmade Mulberry Washi Paper & Solid Walnut",
+        "bulb": "Warm Filament LED (No Blue Light)",
+        "kelvin": "2200K Candlelight Glow",
+        "base_price": 6800,
+        "image_seed": ["photo-1534349762230-e0cadf78f5da", "photo-1517991104123-1d56a6e81ed9", "photo-1540932239986-30128078f3c5"]
     },
     {
-        "category": "Bohemian Runners & Hallways",
+        "category": "Architectural Task & Desk Lamps",
         "names": [
-            "Anatolian Sunburst Long Hallway Runner",
-            "Vintage Oushak Pastel Rose Runner",
-            "Rustic Jute & Wool Braided Corridor Runner",
-            "Kazak Bold Medallion Geometric Runner",
-            "Tribal Diamond Motif Stair Runner",
-            "Herat Indigo Passage Wool Runner",
-            "Khotan Pomegranate Silk Runner",
-            "Caucasus Eagle Motif Heritage Runner",
-            "Persian Afshar Village Wool Runner",
-            "Shirvan Stars Symmetrical Runner"
+            "Studio Counterbalance Cantilever Desk Lamp",
+            "Draftsman Matte Black Articulating Lamp",
+            "Linear Precision Glare-Free Task Light",
+            "Bauhaus Tubular Chrome Desk Lamp",
+            "Monolith Anodized Reading Beam Lamp",
+            "Kinetic Counterweight Studio Lamp",
+            "Architect Clamp-On Rotary Arm Light",
+            "Apex Asymmetric Optical Desk Lamp",
+            "Verve Minimalist Gooseneck Lamp",
+            "Tangent Linear Touch Dimmer Lamp"
         ],
-        "material": "Hand-Spun Ghazni Wool & Hemp",
-        "knots": "400 KPSI Flat-Weave Hybrid",
-        "origin": "Anatolia & Bhadohi",
-        "base_price": 18500,
-        "image_seed": ["photo-1596178065887-1198b6148b2b", "photo-1600585154340-be6161a56a0c", "photo-1558882224-dda166733046"]
+        "material": "Precision Steel, Carbon Alloy & Silicone Joint",
+        "bulb": "High-Efficiency Honeycomb Optical LED",
+        "kelvin": "Adjustable 3000K - 5000K Study Light",
+        "base_price": 8900,
+        "image_seed": ["photo-1524484485831-a92ffc0de03f", "photo-1507473885765-e6ed057f782c", "photo-1543198126-a8ad8e47fb22"]
     }
 ]
 
@@ -182,86 +183,79 @@ idx = 81002
 var_idx = 91003
 img_idx = 70003
 
-for col in CARPET_COLLECTIONS:
+for col in LIGHTING_COLLECTIONS:
     for name in col["names"]:
-        price = col["base_price"] + ((idx % 7) * 4500)
-        reg_price = price + 5000
+        price = col["base_price"] + ((idx % 7) * 950)
+        reg_price = price + 2200
         slug = name.lower().replace(" ", "-").replace("&", "and").replace("'", "")
         img_hash = col["image_seed"][idx % len(col["image_seed"])]
         
         product = {
             "id": idx,
             "title": name,
-            "body_html": f"<p>Exquisite artisan craftsmanship: {name}. Masterfully crafted using {col['material']} with {col['knots']}. Designed to elevate upscale residential interiors and architectural spaces with authentic heritage charm and luxurious underfoot feel.</p>",
-            "vendor": "Rajdhani Artisans",
+            "body_html": f"<p>Artisan lighting craftsmanship: {name}. Masterfully constructed from {col['material']}. Equipped with {col['bulb']} calibrated to {col['kelvin']}. Perfect for elevating nightstands, study consoles, and boutique living room side tables with glare-free ambient warmth.</p>",
+            "vendor": "Lumina Studio",
             "product_type": col["category"],
             "handle": slug,
             "created_at": "2024-01-15T09:00:00Z",
             "updated_at": "2024-02-20T14:15:00Z",
             "published_at": "2024-01-16T11:00:00Z",
             "status": "active" if (idx % 11 != 0) else "draft",
-            "tags": f"{col['category'].lower()}, hand-made, artisan, luxury, {slug}",
+            "tags": f"{col['category'].lower()}, designer lamp, ambient lighting, led, {slug}",
             "variants": [
                 {
                     "id": var_idx,
                     "product_id": idx,
-                    "title": "5 x 8 ft / Standard",
+                    "title": "Standard / Warm 2700K",
                     "price": str(float(price)),
                     "regular_price": str(float(reg_price)),
-                    "sku": f"SHP-{slug[:8].upper()}-5X8",
-                    "inventory_quantity": 4 if (idx % 8 != 0) else 0,
-                    "option1": "5 x 8 ft"
+                    "sku": f"LUM-{slug[:8].upper()}-STD",
+                    "inventory_quantity": 12 if (idx % 8 != 0) else 0,
+                    "option1": "Standard Finish",
+                    "option2": "2700K Warm"
                 },
                 {
                     "id": var_idx + 1,
                     "product_id": idx,
-                    "title": "8 x 10 ft / Large",
-                    "price": str(float(price * 1.65)),
-                    "regular_price": str(float(reg_price * 1.65)),
-                    "sku": f"SHP-{slug[:8].upper()}-8X10",
-                    "inventory_quantity": 2,
-                    "option1": "8 x 10 ft"
-                },
-                {
-                    "id": var_idx + 2,
-                    "product_id": idx,
-                    "title": "9 x 12 ft / Grand Room",
-                    "price": str(float(price * 2.3)),
-                    "regular_price": str(float(reg_price * 2.3)),
-                    "sku": f"SHP-{slug[:8].upper()}-9X12",
-                    "inventory_quantity": 1,
-                    "option1": "9 x 12 ft"
+                    "title": "Signature Edition / 3000K Soft",
+                    "price": str(float(price * 1.25)),
+                    "regular_price": str(float(reg_price * 1.25)),
+                    "sku": f"LUM-{slug[:8].upper()}-SIG",
+                    "inventory_quantity": 6,
+                    "option1": "Signature Edition",
+                    "option2": "3000K Soft"
                 }
             ],
-            "options": [{"name": "Size"}],
+            "options": [{"name": "Edition"}, {"name": "Color Temperature"}],
             "images": [
                 {
                     "id": img_idx,
                     "product_id": idx,
                     "src": f"https://images.unsplash.com/{img_hash}?auto=format&fit=crop&w=1000&q=80",
-                    "alt": f"{name} primary view",
+                    "alt": f"{name} interior room lighting view",
                     "width": 1200,
                     "height": 900
                 },
                 {
                     "id": img_idx + 1,
                     "product_id": idx,
-                    "src": f"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
-                    "alt": f"{name} macro knot texture",
+                    "src": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80",
+                    "alt": f"{name} close-up lamp texture and switch",
                     "width": 1200,
                     "height": 900
                 }
             ],
             "metafields": [
                 {"key": "material", "value": col["material"]},
-                {"key": "knot_count", "value": col["knots"]},
-                {"key": "origin", "value": col["origin"]},
-                {"key": "pile_height", "value": "8-12 mm"}
+                {"key": "bulb_type", "value": col["bulb"]},
+                {"key": "color_temperature", "value": col["kelvin"]},
+                {"key": "voltage", "value": "110-240V Universal Adapter Included"},
+                {"key": "switch_type", "value": "Integrated Rotary / Touch Dimmer"}
             ]
         }
         SHOPIFY_PRODUCTS.append(product)
         idx += 1
-        var_idx += 3
+        var_idx += 2
         img_idx += 2
 
 def get_shopify_products():

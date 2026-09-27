@@ -199,8 +199,8 @@
     if (state.products.length === 0) {
       elements.productGrid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem;">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔍</div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b;">No Carpets Found</h3>
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">💡</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b;">No Lighting Fixtures Found</h3>
           <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.25rem;">
             Try clearing filters or searching with a different term.
           </p>
@@ -234,7 +234,7 @@
 
   function updateTotalCountUI() {
     if (elements.totalCount) {
-      elements.totalCount.textContent = `${state.totalProducts} Carpets`;
+      elements.totalCount.textContent = `${state.totalProducts} Designer Lamps`;
     }
   }
 
@@ -329,11 +329,11 @@
               </span>
             </div>
 
-            <!-- Variants / Sizes -->
+            <!-- Variants / Editions -->
             ${product.variants && product.variants.length > 0 ? `
               <div style="margin-bottom:1.25rem;">
                 <label style="font-size:0.85rem; font-weight:700; color:#334155; display:block; margin-bottom:0.4rem;">
-                  Available Sizes & Dimensions:
+                  Available Finishes & Lighting Options:
                 </label>
                 <div style="display:flex; flex-wrap:wrap; gap:0.5rem;" id="modal-variant-options">
                   ${product.variants.map((v, i) => `
@@ -351,7 +351,7 @@
 
             <!-- Description -->
             <div style="margin-bottom:1.25rem;">
-              <h4 style="font-size:0.9rem; font-weight:700; color:#1e293b; margin-bottom:0.4rem;">Artisan Description</h4>
+              <h4 style="font-size:0.9rem; font-weight:700; color:#1e293b; margin-bottom:0.4rem;">Design & Craftsmanship</h4>
               <div style="font-size:0.9rem; color:#475569; line-height:1.6;">
                 ${product.description || product.short_description}
               </div>
@@ -491,7 +491,7 @@
           <div style="font-size:2.5rem; margin-bottom:0.5rem;">♡</div>
           <h3 style="font-size:1.15rem; font-weight:700;">Your Wishlist is Empty</h3>
           <p style="color:#64748b; font-size:0.9rem; margin-top:0.25rem;">
-            Tap the heart icon on any carpet to save it for later.
+            Tap the heart icon on any lamp to save it for later.
           </p>
         </div>
       `;
@@ -513,7 +513,7 @@
 
           <div style="display:flex; flex-direction:column; gap:0.5rem;">
             <button class="btn btn-whatsapp" id="send-wishlist-wa-btn" style="width:100%;">
-              <span>💬 Enquire All ${items.length} Carpets on WhatsApp</span>
+              <span>💬 Enquire All ${items.length} Lamps on WhatsApp</span>
             </button>
             <button class="btn btn-outline" id="clear-wishlist-btn" style="width:100%;">
               Clear Wishlist

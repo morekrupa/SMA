@@ -57,9 +57,9 @@ def normalize_shopify_product(raw: Dict[str, Any]) -> Dict[str, Any]:
         metadata[mf.get("key")] = mf.get("value")
     if not metadata and raw.get("tags"):
         metadata["tags"] = raw.get("tags")
-    metadata["vendor"] = raw.get("vendor", "Rajdhani Artisans")
+    metadata["vendor"] = raw.get("vendor", "Lumina Studio")
 
-    category_name = raw.get("product_type") or "Hand-Knotted Silk Carpets"
+    category_name = raw.get("product_type") or "Sculptural Table Lamps"
 
     return {
         "source": "shopify",

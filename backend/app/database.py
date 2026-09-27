@@ -155,19 +155,19 @@ def init_db():
         # Seed initial store settings if empty
         default_settings = [
             ("store_name", settings.DEFAULT_STORE_NAME),
-            ("tagline", "Handcrafted Luxury Carpets & Rugs - Direct Artisan Gallery"),
+            ("tagline", "Designer Table Lamps, Sculptural Bedside Lights & Ambient Fixtures"),
             ("whatsapp_number", settings.DEFAULT_WHATSAPP),
-            ("whatsapp_message_template", "Hi, I am interested in the following products:\n{product_list}\nPlease share more details and pricing."),
+            ("whatsapp_message_template", "Hi, I am interested in the following lighting fixtures:\n{product_list}\nPlease share more details and pricing."),
             ("active_design", settings.DEFAULT_DESIGN),
             ("currency", settings.DEFAULT_CURRENCY),
             ("currency_symbol", settings.DEFAULT_CURRENCY_SYMBOL),
             ("auto_sync_enabled", "1"),
             ("auto_sync_interval_minutes", str(settings.AUTO_SYNC_INTERVAL_MINUTES)),
-            ("banner_announcement", "✨ Exclusive Hand-Knotted Silk & Wool Rugs Collection | Direct WhatsApp Inquiry & Fast Shipping"),
+            ("banner_announcement", "✨ Designer Table Lamps & Ambient Studio Lighting | Handcrafted Materials | Direct WhatsApp Inquiry"),
             ("banner_is_active", "1")
         ]
         for key, val in default_settings:
-            cursor.execute("INSERT OR IGNORE INTO store_settings (key, value) VALUES (?, ?);", (key, val))
+            cursor.execute("INSERT OR REPLACE INTO store_settings (key, value) VALUES (?, ?);", (key, val))
 
         conn.commit()
         logger.info("Database initialized successfully.")

@@ -33,8 +33,8 @@ def normalize_woocommerce_product(raw: Dict[str, Any]) -> Dict[str, Any]:
 
     # Categories
     cats = raw.get("categories", [])
-    primary_cat = cats[0] if cats else {"name": "Handcrafted Rugs", "slug": "handcrafted-rugs"}
-    category_name = primary_cat.get("name", "Handcrafted Rugs")
+    primary_cat = cats[0] if cats else {"name": "Designer Table Lamps", "slug": "designer-table-lamps"}
+    category_name = primary_cat.get("name", "Designer Table Lamps")
 
     # Images
     images_raw = raw.get("images", [])

@@ -1,5 +1,5 @@
 """
-WooCommerce Data Source Seed: 55+ Products formatted in the official WooCommerce REST API v3 format:
+WooCommerce Data Source Seed: 55+ Designer Lighting Products formatted in official WooCommerce REST API v3 format:
 GET /wp-json/wc/v3/products
 """
 
@@ -8,166 +8,163 @@ import json
 WOOCOMMERCE_PRODUCTS = [
     {
         "id": 501,
-        "name": "Bespoke Royal Jaipur Hand-Tufted Wool Rug",
-        "slug": "bespoke-royal-jaipur-hand-tufted-wool-rug",
-        "permalink": "https://woocommerce.rajdhanicarpets.local/product/bespoke-royal-jaipur-hand-tufted-wool-rug/",
+        "name": "Bespoke Fluted Amber Glass & Walnut Base Table Lamp",
+        "slug": "bespoke-fluted-amber-glass-walnut-table-lamp",
+        "permalink": "https://woocommerce.luminastudio.local/product/bespoke-fluted-amber-glass-walnut-table-lamp/",
         "date_created": "2024-01-12T10:30:00",
         "date_modified": "2024-02-18T16:45:00",
         "type": "variable",
         "status": "publish",
         "featured": True,
         "catalog_visibility": "visible",
-        "description": "<p>A sumptuous high-density hand-tufted rug from Jaipur royal atelier traditions. High-pile New Zealand wool with hand-carved dimensional beveling that catches natural sunlight beautifully across modern living rooms.</p>",
-        "short_description": "<p>High-density hand-tufted New Zealand wool with carved botanical textures.</p>",
-        "sku": "WC-JPR-TUFT-01",
-        "price": "36500",
-        "regular_price": "42000",
-        "sale_price": "36500",
+        "description": "<p>A timeless statement lamp crafted from heavy fluted optic amber glass set into a hand-turned American walnut base. Diffuses an inviting, golden hour ambient light across sideboards, consoles, and bedside spaces. Equipped with vintage-style brass toggle switch and braided houndstooth cord.</p>",
+        "short_description": "<p>Hand-blown fluted amber glass with FSC-certified solid walnut base.</p>",
+        "sku": "WC-LUM-AMB-01",
+        "price": "9800",
+        "regular_price": "12500",
+        "sale_price": "9800",
         "on_sale": True,
         "purchasable": True,
-        "total_sales": 18,
+        "total_sales": 24,
         "stock_status": "instock",
-        "stock_quantity": 6,
+        "stock_quantity": 14,
         "categories": [
-            {"id": 101, "name": "Hand-Tufted Contemporary Rugs", "slug": "hand-tufted-contemporary-rugs"}
+            {"id": 101, "name": "Luxury Fluted Glass Accent Lamps", "slug": "luxury-fluted-glass-accent-lamps"}
         ],
         "images": [
             {
                 "id": 1201,
-                "src": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
-                "name": "Jaipur Hand Tufted Living Room",
-                "alt": "Bespoke Royal Jaipur Hand-Tufted Wool Rug"
+                "src": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+                "name": "Fluted Amber Glass Lamp Styled",
+                "alt": "Bespoke Fluted Amber Glass & Walnut Base Table Lamp"
             },
             {
                 "id": 1202,
-                "src": "https://images.unsplash.com/photo-1558882224-dda166733046?auto=format&fit=crop&w=1000&q=80",
-                "name": "Jaipur Hand Tufted Texture",
-                "alt": "Jaipur Rug weave texture and pile height"
+                "src": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
+                "name": "Glass optic texture detail",
+                "alt": "Fluted amber glass lamp optic refraction"
             }
         ],
         "attributes": [
-            {"id": 1, "name": "Size", "options": ["5x8 ft", "8x10 ft", "9x12 ft"]},
-            {"id": 2, "name": "Colorway", "options": ["Champagne Gold", "Slate Grey"]}
+            {"id": 1, "name": "Size", "options": ["Medium (32cm)", "Grand (42cm)"]},
+            {"id": 2, "name": "Glass Tint", "options": ["Amber Gold", "Smoked Quartz"]}
         ],
         "meta_data": [
-            {"key": "_artisan_origin", "value": "Jaipur, Rajasthan"},
-            {"key": "_material_composition", "value": "80% New Zealand Wool, 20% Viscose highlights"},
-            {"key": "_pile_height", "value": "14 mm Hand-Carved Dual Pile"},
-            {"key": "_knot_technique", "value": "Tufted with cotton backing"}
+            {"key": "_artisan_origin", "value": "Murano & Oregon Atelier"},
+            {"key": "_material_composition", "value": "Mouth-Blown Optic Glass & Solid Walnut"},
+            {"key": "_bulb_spec", "value": "Warm Filament LED 4W E27 (Included)"},
+            {"key": "_lumens", "value": "450 Lumens (Warm 2400K Ambient)"}
         ]
     }
 ]
 
-# Generate 54 additional varied WooCommerce products
+# Generate 54 additional varied WooCommerce lighting products
 WC_CATEGORIES_DATA = [
     {
-        "category": "Vintage Overdyed & Distressed",
-        "cat_slug": "vintage-overdyed-and-distressed",
+        "category": "Industrial Edison & Vintage Ambient",
+        "cat_slug": "industrial-edison-and-vintage-ambient",
         "names": [
-            "Cobalt Blue Distressed Anatolian Rug",
-            "Faded Emerald Antique Medallion Rug",
-            "Washed Charcoal Vintage Persian Rug",
-            "Muted Saffron Overdyed Wool Runner",
-            "Distressed Terracotta Turkish Salon Rug",
-            "Antique Washed Rose Damask Rug",
-            "Mineral Grey Reclaimed Vintage Carpet",
-            "Vintage Teal Patchwork Artisan Carpet",
-            "Distressed Sandstone Persian Floor Cloth",
-            "Weathered Bronze Botanical Wool Carpet",
-            "Washed Olive Garden Heritage Rug"
+            "Cast Iron Pipe Edison Table Lamp",
+            "Steampunk Brass Gauge Cage Lamp",
+            "Reclaimed Teak Block Edison Light",
+            "Matte Gunmetal Industrial Studio Lamp",
+            "Copper Filament Vintage Banker Lamp",
+            "Brass Wireframe Geometric Lantern",
+            "Heavy Foundry Bronze Desk Light",
+            "Vintage Telephone Style Metal Lamp",
+            "Warehouse Industrial Spotlight Lamp",
+            "Riveted Steel Minimalist Bulb Stand",
+            "Antique Boiler Gauge Night Lamp"
         ],
-        "material": "Aged Hand-Spun Anatolian Wool",
-        "pile": "Low-Sheared Distressed (4mm)",
-        "origin": "Central Anatolia, Turkey",
-        "base_price": 28500,
-        "image_seed": ["photo-1600585154340-be6161a56a0c", "photo-1596178065887-1198b6148b2b", "photo-1586023492125-27b2c045efd7"]
+        "material": "Cast Iron, Antiqued Copper & Heavyweight Brass",
+        "bulb": "Exposed Spiral Filament Edison Bulb (Included)",
+        "lumens": "350 Lumens Warm Amber",
+        "base_price": 5400,
+        "image_seed": ["photo-1524484485831-a92ffc0de03f", "photo-1507473885765-e6ed057f782c", "photo-1540932239986-30128078f3c5"]
     },
     {
-        "category": "Organic Jute & Natural Fiber",
-        "cat_slug": "organic-jute-and-natural-fiber",
+        "category": "Mushroom & Dome Accent Lamps",
         "names": [
-            "Braided Sunburst Golden Jute Rug",
-            "Chunky Ribbed Natural Hemp Floor Mat",
-            "Herringbone Bleached Jute & Cotton Rug",
-            "Hand-Coiled Round Spiral Jute Mat",
-            "Geometric Charcoal Border Natural Jute Rug",
-            "Bleached Seagrass Coastal Living Rug",
-            "Boucle Weave Golden Sisal Area Rug",
-            "Hand-Loomed Linen & Hemp Flatweave",
-            "Rustic Farmhouse Scalloped Jute Rug",
-            "Dhurrie Stripe Organic Jute Runner",
-            "Diamond Grid Golden Flax Rug"
+            "Retro Ochre Gloss Mushroom Lamp",
+            "Panton Style Orange Acrylic Dome Light",
+            "Brushed Steel Space Age Table Lamp",
+            "Milk Glass Bell Mushroom Night Lamp",
+            "Curved Cantilever Metal Dome Lamp",
+            "Pastel Mint Italian Mushroom Lamp",
+            "Minimalist Chrome Mushroom Table Light",
+            "Sunset Yellow Acrylic Glow Lamp",
+            "Monochrome Matte Black Mushroom Lamp",
+            "Smoked Glass Mushroom Accent Lamp",
+            "Coral Pink Mid-Century Dome Light"
         ],
-        "material": "100% Biodegradable Raw Jute & Sisal",
-        "pile": "Textured Flat-Braid (8mm)",
-        "origin": "Bengal & Kerala, India",
-        "base_price": 12500,
-        "image_seed": ["photo-1507652313519-d4e9174996dd", "photo-1540518614846-7ede433c4ef8", "photo-1513519245088-0e12902e5a38"]
+        "material": "Spun Carbon Steel & Hand-Cast Acrylic",
+        "bulb": "Dual Omni-Directional Warm LED",
+        "lumens": "550 Lumens Glare-Free Ambient",
+        "base_price": 6900,
+        "image_seed": ["photo-1543198126-a8ad8e47fb22", "photo-1540555700478-4be289fbecef", "photo-1505691938895-1758d7feb511"]
     },
     {
-        "category": "Kilim & Flatweave Heritage",
-        "cat_slug": "kilim-and-flatweave-heritage",
+        "category": "Sculptural Marble & Alabaster Lights",
         "names": [
-            "Traditional Malatya Reversible Wool Kilim",
-            "Balkan Geometric Slit-Weave Tapestry",
-            "Ghazni Hand-Spun Wool Tribal Kilim",
-            "Navajo Inspired Arrowhead Flatweave",
-            "Moroccan Stripe Hand-Woven Kilim Runner",
-            "Shirvan Kilim Symmetrical Geometric Rug",
-            "Bessarabian Floral Tapestry Kilim",
-            "Antalya Sunbeam Earthy Wool Kilim",
-            "Kilim Patchwork Contemporary Floor Accent",
-            "Kuba Cloth Inspired Geometric Flatweave",
-            "Sumak Embroidered Heavyweight Wool Kilim"
+            "Carrara Marble Cylinder Table Light",
+            "Nero Marquina Black Marble Cube Lamp",
+            "Spanish Alabaster Translucent Glowing Pillar",
+            "Verde Guatemala Green Marble Lamp",
+            "Travertine Stepped Pedestal Table Lamp",
+            "Sculpted Calacatta Gold Marble Light",
+            "Onyx Backlit Mineral Crystal Lamp",
+            "Raw Edge Limestone Bedside Lamp",
+            "Pyramid Alabaster Sacred Glow Light",
+            "Monolithic Grey Granite Table Light",
+            "Honed Sandstone Ambient Sphere Lamp"
         ],
-        "material": "Pure Hand-Carded Organic Wool & Goat Hair",
-        "pile": "Reversible Zero-Pile Flatweave",
-        "origin": "Anatolia & Caucasus",
-        "base_price": 19500,
-        "image_seed": ["photo-1538688525198-9b88f6f53126", "photo-1579656381226-5fc0f0100c3b", "photo-1616486338812-3dadae4b4ace"]
+        "material": "Natural Quarried Italian Marble & Brass Accents",
+        "bulb": "Integrated Low-Voltage Concealed LED",
+        "lumens": "400 Lumens Soft Subsurface Glow",
+        "base_price": 13500,
+        "image_seed": ["photo-1517991104123-1d56a6e81ed9", "photo-1507473885765-e6ed057f782c", "photo-1513506003901-1e6a229e2d15"]
     },
     {
-        "category": "Architectural Geometric & Modernist",
-        "cat_slug": "architectural-geometric-and-modernist",
+        "category": "Bohemian Rattan & Woven Bamboo Lamps",
         "names": [
-            "Cubist Monochrome Block Wool Carpet",
-            "Archways Curved Mid-Century Floor Rug",
-            "Metropolis High-Contrast Grid Rug",
-            "Bauhaus Primary Tone Geometric Area Rug",
-            "Linear Kinetic Optical Illusion Carpet",
-            "Terrazzo Abstract Speckled Tufted Rug",
-            "Brutalist Concrete Hue Sculpted Rug",
-            "Vortex Circular Radial Pattern Carpet",
-            "Origami Fold Dimensional Texture Rug",
-            "Spectrum Prismatic Contemporary Floor Rug",
-            "Rotterdam Bauhaus Asymmetrical Runner"
+            "Bali Handwoven Seagrass Table Lamp",
+            "Tiered Natural Bamboo Lantern Lamp",
+            "Cane Webbing Cylinder Bedside Light",
+            "Wicker Dome Coastal Living Accent Lamp",
+            "Braided Rattan Gourd Silhouette Lamp",
+            "Palm Fiber Tropical Night Lamp",
+            "Loomed Jute Drum Shade Table Lamp",
+            "Open-Weave Straw Basket Light",
+            "Scalloped Bamboo Studio Table Lamp",
+            "Sunburst Rattan Halo Table Light",
+            "Organic Abaca Fiber Mood Lamp"
         ],
-        "material": "Semi-Worsted New Zealand Wool & Bamboo Silk",
-        "pile": "Multi-Level Loop & Cut Pile (12mm)",
-        "origin": "Bhadohi, India",
-        "base_price": 31000,
-        "image_seed": ["photo-1558882224-dda166733046", "photo-1586023492125-27b2c045efd7", "photo-1513694203232-719a280e022f"]
+        "material": "Sustainably Harvested Rattan & Natural Bamboo",
+        "bulb": "Warm 2200K Decorative Filament LED",
+        "lumens": "380 Lumens Pattern-Casting Warmth",
+        "base_price": 4800,
+        "image_seed": ["photo-1534349762230-e0cadf78f5da", "photo-1540932239986-30128078f3c5", "photo-1517991104123-1d56a6e81ed9"]
     },
     {
-        "category": "Luxury Round & Oval Accent Rugs",
+        "category": "Modern Touch & Smart Dimmable Lights",
         "names": [
-            "Celestial Moon Phase Circular Silk Rug",
-            "Mandala Sunburst Hand-Knotted Round Carpet",
-            "Ivory Pearl Floral Medallion Round Rug",
-            "Botanical Lotus Leaf Oval Tufted Rug",
-            "Emerald Ring Concentric Circle Area Rug",
-            "Golden Hour Radial Ombre Round Carpet",
-            "Vintage French Aubusson Round Wool Rug",
-            "Cosmic Nebula Abstract Circular Rug",
-            "Zen Spiral Contoured Pebble Round Rug",
-            "Royal Rosewood Medallion Oval Carpet"
+            "Aura Touch Dimmable Ring Light",
+            "Eclipse Magnetic Levitation Moon Lamp",
+            "Minimalist Touch-Control Bedside Bar",
+            "Prism Dichroic Glass Spectrum Lamp",
+            "Nebula Ambient Wireless Charging Lamp",
+            "Halo Smart RGBW Sunset Table Light",
+            "Oasis Acoustic Felt Dimmable Lamp",
+            "Arcade Stepless Rotary Brass Lamp",
+            "Zenith Balance Floating Light Beam",
+            "Chrono Daylight Simulating Desk Lamp"
         ],
-        "cat_slug": "luxury-round-and-oval-accent-rugs",
-        "material": "Worsted Wool with Botanical Silk Accents",
-        "pile": "10 mm Hand-Sheared Lustrous Pile",
-        "origin": "Kashmir & Mirzapur",
-        "base_price": 27000,
-        "image_seed": ["photo-1600121848594-d8644e57abab", "photo-1600585154340-be6161a56a0c", "photo-1507652313519-d4e9174996dd"]
+        "cat_slug": "modern-touch-and-smart-dimmable-lights",
+        "material": "Precision Machined Aircraft Aluminum & Glass",
+        "bulb": "Smart Dimmable High CRI 98+ Optical LED",
+        "lumens": "800 Lumens (Tunable 2200K - 6500K)",
+        "base_price": 8200,
+        "image_seed": ["photo-1505691938895-1758d7feb511", "photo-1543198126-a8ad8e47fb22", "photo-1524484485831-a92ffc0de03f"]
     }
 ]
 
@@ -176,28 +173,28 @@ img_id = 1203
 
 for cat_info in WC_CATEGORIES_DATA:
     for name in cat_info["names"]:
-        price = cat_info["base_price"] + ((wc_id % 6) * 3800)
-        reg_price = price + 4500
+        price = cat_info["base_price"] + ((wc_id % 6) * 750)
+        reg_price = price + 1500
         slug = name.lower().replace(" ", "-").replace("&", "and").replace("'", "")
         img_hash = cat_info["image_seed"][wc_id % len(cat_info["image_seed"])]
         
         is_instock = (wc_id % 9 != 0)
         stock_status = "instock" if is_instock else "outofstock"
-        stock_qty = 5 if is_instock else 0
+        stock_qty = 8 if is_instock else 0
 
         prod = {
             "id": wc_id,
             "name": name,
             "slug": slug,
-            "permalink": f"https://woocommerce.rajdhanicarpets.local/product/{slug}/",
+            "permalink": f"https://woocommerce.luminastudio.local/product/{slug}/",
             "date_created": "2024-01-20T11:00:00",
             "date_modified": "2024-02-22T14:30:00",
             "type": "simple",
             "status": "publish",
             "featured": (wc_id % 7 == 0),
             "catalog_visibility": "visible",
-            "description": f"<p>Artisanal masterpiece: {name}. Meticulously handcrafted from {cat_info['material']}. Features {cat_info['pile']} for enduring luxury, resilience, and tactile richness. Hand-finished edges and authentic artisan stamp.</p>",
-            "short_description": f"<p>{cat_info['material']}, {cat_info['pile']} from {cat_info['origin']}.</p>",
+            "description": f"<p>Designer lighting fixture: {name}. Meticulously handcrafted from {cat_info['material']}. Comes equipped with {cat_info['bulb']} delivering {cat_info['lumens']}. Creates a calm, luxurious atmosphere with zero glare and superior color fidelity.</p>",
+            "short_description": f"<p>{cat_info['material']} with {cat_info['bulb']}.</p>",
             "sku": f"WC-{slug[:8].upper()}-{wc_id}",
             "price": str(price),
             "regular_price": str(reg_price),
@@ -208,31 +205,35 @@ for cat_info in WC_CATEGORIES_DATA:
             "stock_status": stock_status,
             "stock_quantity": stock_qty,
             "categories": [
-                {"id": 200 + (wc_id % 5), "name": cat_info["category"], "slug": cat_info["cat_slug"]}
+                {
+                    "id": 200 + (wc_id % 5),
+                    "name": cat_info["category"],
+                    "slug": cat_info.get("cat_slug") or cat_info["category"].lower().replace(" ", "-").replace("&", "and")
+                }
             ],
             "images": [
                 {
                     "id": img_id,
                     "src": f"https://images.unsplash.com/{img_hash}?auto=format&fit=crop&w=1000&q=80",
                     "name": f"{name} Room View",
-                    "alt": f"{name} in luxury room setting"
+                    "alt": f"{name} in luxury bedroom or living room"
                 },
                 {
                     "id": img_id + 1,
-                    "src": f"https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
+                    "src": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
                     "name": f"{name} Surface Detail",
-                    "alt": f"{name} close up weave"
+                    "alt": f"{name} lamp shade and hardware detail"
                 }
             ],
             "attributes": [
-                {"id": 1, "name": "Size", "options": ["4x6 ft", "6x9 ft", "8x10 ft"]},
-                {"id": 2, "name": "Weave Style", "options": [cat_info["pile"]]}
+                {"id": 1, "name": "Size", "options": ["Standard Table Height", "Compact Bedside"]},
+                {"id": 2, "name": "Lighting Tone", "options": ["Warm Amber 2400K", "Soft White 3000K"]}
             ],
             "meta_data": [
-                {"key": "_artisan_origin", "value": cat_info["origin"]},
                 {"key": "_material_composition", "value": cat_info["material"]},
-                {"key": "_pile_height", "value": cat_info["pile"]},
-                {"key": "_authenticity_certificate", "value": "Included with Artisan Signature"}
+                {"key": "_bulb_type", "value": cat_info["bulb"]},
+                {"key": "_lumens", "value": cat_info["lumens"]},
+                {"key": "_certifications", "value": "CE, RoHS, BIS Certified Low-Voltage"}
             ]
         }
         WOOCOMMERCE_PRODUCTS.append(prod)

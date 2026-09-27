@@ -97,7 +97,7 @@ class WhatsAppEnquiryManager {
 
   sendMultiEnquiry() {
     if (this.selected.size === 0) {
-      alert("Please select at least one carpet to enquire.");
+      alert("Please select at least one lighting item to enquire.");
       return;
     }
     const msg = this.formatMultiProductMessage();
@@ -123,7 +123,7 @@ class WhatsAppEnquiryManager {
       const badge = dock.querySelector(".wa-badge");
       const title = dock.querySelector(".wa-dock-title");
       if (badge) badge.textContent = `${count}`;
-      if (title) title.textContent = `${count} Carpet${count > 1 ? "s" : ""} Selected for Enquiry`;
+      if (title) title.textContent = `${count} Lamp${count > 1 ? "s" : ""} Selected for Enquiry`;
     } else {
       dock.classList.remove("active");
     }

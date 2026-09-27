@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class Settings(BaseModel):
-    PROJECT_NAME: str = "Catalog Maker - High-Speed Product Catalog Platform"
+    PROJECT_NAME: str = "Lumina Studio - High-Speed Designer Lighting & Lamp Catalog"
     VERSION: str = "1.0.0"
     API_V1_PREFIX: str = "/api/v1"
     
@@ -12,8 +12,8 @@ class Settings(BaseModel):
     
     # Store defaults
     DEFAULT_WHATSAPP: str = "+919876543210"
-    DEFAULT_STORE_NAME: str = "Rajdhani Artisans & Digital Carpets"
-    DEFAULT_DESIGN: str = "rajdhani"  # "rajdhani" | "nordic"
+    DEFAULT_STORE_NAME: str = "Lumina Studio: Designer Table Lamps & Lights"
+    DEFAULT_DESIGN: str = "rajdhani"  # "rajdhani" (Lumina Ambient) | "nordic" (Nordic Minimalist Studio)
     DEFAULT_CURRENCY: str = "INR"
     DEFAULT_CURRENCY_SYMBOL: str = "₹"
     

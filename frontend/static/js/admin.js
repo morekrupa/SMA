@@ -306,13 +306,14 @@
           short_description: desc.substring(0, 150),
           images: [{ url: imgUrl, is_cover: true, alt: name }],
           variants: [
-            { id: "var_std", title: "5 x 8 ft (Standard)", price: price, regular_price: regularPrice, sku: `${sku}-5X8` },
-            { id: "var_lg", title: "8 x 10 ft (Large)", price: price * 1.6, regular_price: regularPrice * 1.6, sku: `${sku}-8X10` }
+            { id: "var_std", title: "Standard Finish (Warm White 2700K)", price: price, regular_price: regularPrice, sku: `${sku}-STD` },
+            { id: "var_sig", title: "Signature Edition (Soft White 3000K)", price: price * 1.25, regular_price: regularPrice * 1.25, sku: `${sku}-SIG` }
           ],
           metadata: {
-            material: "Hand-Spun High Highland Wool",
-            origin: "Artisan Atelier",
-            pile_height: "10 mm"
+            material: "Solid Travertine & Frosted Blown Glass",
+            bulb_type: "Integrated Dimmable Warm LED",
+            color_temperature: "2700K Warm Ambient",
+            voltage: "110-240V Universal Adapter"
           }
         };
 
@@ -418,7 +419,7 @@
           <tr>
             <td><strong>${c.name}</strong></td>
             <td><code>${c.slug}</code></td>
-            <td>${c.product_count} carpets</td>
+            <td>${c.product_count} fixtures</td>
             <td>
               <span class="badge" style="background:${c.is_visible ? '#dcfce7' : '#fee2e2'}; color:${c.is_visible ? '#15803d' : '#991b1b'};">
                 ${c.is_visible ? 'Visible' : 'Hidden'}
