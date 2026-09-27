@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="description" content="High-speed mobile-first handcrafted carpet & rug catalog with direct WhatsApp enquiry." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Artisan Carpet Gallery | High-Speed Digital Catalog</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+  <!-- Core & Theme Stylesheets -->
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/design-rajdhani.css" />
+  <link rel="stylesheet" href="/static/css/design-nordic.css" />
+</head>
+<body class="theme-rajdhani">
+
+  <!-- Top Announcement Bar -->
+  <div id="banner-announcement" class="raj-announcement">
+    ✨ Exclusive Hand-Knotted Silk &amp; Wool Rugs Collection | Direct WhatsApp Inquiry &amp; Fast Worldwide Shipping
+  </div>
+
+  <!-- Main Header -->
+  <header class="raj-header">
+    <div class="raj-header-inner">
+      <!-- Logo / Brand -->
+      <a href="/" class="raj-logo">
+        <div class="raj-logo-icon">R</div>
+        <div class="raj-logo-text">
+          <h1>Rajdhani Artisans</h1>
+          <span>Heritage Hand-Knotted Carpets</span>
+        </div>
+      </a>
+
+      <!-- Header Actions -->
+      <div class="raj-header-actions">
+        <!-- Design Switcher (Requirement 8 & 19.11) -->
+        <div style="display:flex; align-items:center; gap:0.35rem; background:#f1f5f9; padding:0.25rem 0.5rem; border-radius:8px; border:1px solid #e2e8f0;">
+          <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Design:</span>
+          <select id="design-selector-select" style="background:transparent; border:none; font-size:0.8rem; font-weight:700; color:#0f172a; cursor:pointer; outline:none;">
+            <option value="rajdhani">Rajdhani Heritage</option>
+            <option value="nordic">Nordic Minimalist</option>
+          </select>
+        </div>
+
+        <!-- Wishlist Button with Badge (Requirement 12) -->
+        <button id="header-wishlist-btn" class="raj-icon-btn" title="Saved Wishlist">
+          <span>♥</span>
+          <span id="header-wishlist-count" class="raj-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Admin Portal Link -->
+        <a href="/admin" class="raj-icon-btn" title="Admin Management Portal" style="font-size:1.1rem; text-decoration:none;">
+          ⚙️
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Folders Navigation Ribbon (Requirement 2 & 10) -->
+  <nav id="category-nav-container">
+    <!-- Populated dynamically by active theme renderer -->
+  </nav>
+
+  <!-- Controls Bar: Search, Sort & Counter -->
+  <section class="raj-controls">
+    <div class="raj-search-box">
+      <span class="raj-search-icon">🔍</span>
+      <input type="text" id="search-input" class="raj-search-input" placeholder="Search carpets by name, weave, material or SKU..." autocomplete="off" />
+    </div>
+
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      <span id="total-count-badge" style="font-size:0.85rem; font-weight:700; color:#64748b; white-space:nowrap;">
+        Loading collection...
+      </span>
+
+      <select id="sort-select" class="raj-filter-select">
+        <option value="featured">Featured Collection</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="newest">New Arrivals</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Product Grid Container -->
+  <main class="raj-grid-container">
+    <div id="product-grid" class="raj-grid">
+      <!-- Skeletons rendered initially, then populated with products -->
+    </div>
+
+    <div style="text-align:center; padding:2rem 0;">
+      <button id="load-more-btn" class="btn btn-outline" style="display:none; padding:0.75rem 2rem;">
+        Load More Carpets
+      </button>
+    </div>
+  </main>
+
+  <!-- Sticky WhatsApp Multi-Select Enquiry Drawer (Requirement 11) -->
+  <div id="wa-dock" class="wa-dock">
+    <div class="wa-dock-info">
+      <span class="wa-badge">0</span>
+      <div>
+        <div class="wa-dock-title" style="font-size:0.95rem; font-weight:700;">0 Carpets Selected</div>
+        <div style="font-size:0.75rem; color:#94a3b8;">Send bulk inquiry directly to WhatsApp</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:0.5rem;">
+      <button id="wa-dock-clear-btn" class="btn btn-outline" style="border-color:#475569; color:#cbd5e1; min-height:40px; padding:0 0.8rem; font-size:0.8rem;">
+        Clear
+      </button>
+      <button id="wa-dock-send-btn" class="btn btn-whatsapp" style="min-height:40px; padding:0 1.25rem;">
+        <span>💬 Enquire on WhatsApp</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Direct WhatsApp Button -->
+  <a id="floating-wa-btn" class="floating-wa-btn" href="#" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.144-.069-.267-.087-.597-.22-1.026-.411-1.815-.811-3.003-2.651-3.094-2.772-.091-.122-.74-1.002-.74-1.912 0-.91.472-1.358.64-1.543.168-.184.368-.231.492-.231.123 0 .247.002.355.007.114.005.267-.043.418.32.155.372.531 1.298.578 1.393.047.095.078.206.016.331-.062.125-.094.204-.187.314-.093.111-.197.247-.281.332-.093.094-.19.197-.082.383.109.186.484.801 1.038 1.294.713.636 1.314.833 1.5.926.186.094.296.078.406-.047.111-.125.474-.551.6-.74.125-.188.252-.157.42-.095.17.063 1.077.508 1.262.601.185.093.309.14.355.218.046.079.046.457-.098.862z"/></svg>
+  </a>
+
+  <!-- Product Detail Modal (Pop-Up) -->
+  <div id="product-detail-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-size:1.05rem; font-weight:700; color:#0f172a;">Carpet Details &amp; Specifications</h3>
+        <button class="modal-close-btn" title="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer Modal -->
+  <div id="wishlist-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-size:1.05rem; font-weight:700; color:#0f172a;">Saved Carpets (Wishlist)</h3>
+        <button class="modal-close-btn" title="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background:#0f172a; color:#94a3b8; padding:3rem 1rem 5rem 1rem; border-top:1px solid #1e293b; margin-top:auto;">
+    <div style="max-width:1280px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem; text-align:center;">
+      <h3 style="color:#ffffff; font-size:1.15rem; font-weight:700;">Catalog Maker Platform</h3>
+      <p style="font-size:0.875rem; max-width:600px; margin:0 auto; line-height:1.6;">
+        Ultra-fast, mobile-first product catalog platform synchronizing products from Shopify &amp; WooCommerce. Speed-engineered with zero heavy runtime overhead.
+      </p>
+      <div style="display:flex; justify-content:center; gap:1.5rem; font-size:0.85rem; font-weight:600;">
+        <a href="/admin" style="color:#f59e0b; text-decoration:none;">Admin Portal</a>
+        <a href="/docs" target="_blank" style="color:#60a5fa; text-decoration:none;">API Swagger Docs</a>
+        <a href="https://rajdhanicarpets.com/?folder=rajdhani-digital-carpets" target="_blank" style="color:#cbd5e1; text-decoration:none;">Reference Experience</a>
+      </div>
+      <div style="font-size:0.75rem; color:#64748b;">
+        © 2026 Rajdhani Artisans &amp; Digital Carpets Platform. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Vanilla JS Modules for Extreme Speed -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/wishlist.js"></script>
+  <script src="/static/js/whatsapp.js"></script>
+  <script src="/static/js/lightbox.js"></script>
+  <script src="/static/js/design-rajdhani.js"></script>
+  <script src="/static/js/design-nordic.js"></script>
+  <script src="/static/js/catalog.js"></script>
+</body>
+</html>
