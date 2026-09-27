@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal | Lumina Studio Lighting</title>
+  <link rel="stylesheet" href="/static/css/common.css" />
+  <link rel="stylesheet" href="/static/css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div style="width:32px; height:32px; background:#3b82f6; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem;">
+        💡
+      </div>
+      <div>
+        <h2>Lumina Studio</h2>
+        <span>Lighting Admin Engine</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <button class="admin-nav-item active" data-tab="overview">
+        <span>📊</span> Dashboard Overview
+      </button>
+      <button class="admin-nav-item" data-tab="products">
+        <span>📦</span> Lighting Catalog
+      </button>
+      <button class="admin-nav-item" data-tab="categories">
+        <span>📁</span> Categories
+      </button>
+      <button class="admin-nav-item" data-tab="sync">
+        <span>🔄</span> Source Sync &amp; Diff
+      </button>
+      <button class="admin-nav-item" data-tab="audit">
+        <span>📜</span> Audit &amp; Change Log
+      </button>
+      <button class="admin-nav-item" data-tab="settings">
+        <span>⚙️</span> Design &amp; Settings
+      </button>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <a href="/" target="_blank" class="btn btn-outline" style="border-color:#334155; color:#cbd5e1; width:100%; font-size:0.8rem; text-decoration:none;">
+        👁️ View Public Catalog ↗
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="admin-topbar-title">
+        <h1 id="admin-page-title">Lighting Catalog Administration</h1>
+      </div>
+      <div class="admin-topbar-actions">
+        <button id="btn-sync-all" class="btn btn-primary" style="font-size:0.85rem; min-height:38px;">
+          <span>⚡ Sync All Sources</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-content">
+
+      <!-- TAB 1: OVERVIEW -->
+      <section id="tab-view-overview" class="tab-view">
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <span class="stat-card-title">Total Lighting Fixtures</span>
+            <div id="stat-total-products" class="stat-card-val">0</div>
+            <div class="stat-card-sub">In central database</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-title">Active for Sale</span>
+            <div id="stat-active-products" class="stat-card-val">0</div>
+            <div class="stat-card-sub">Visible to customers</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-title">Shopify Imports</span>
+            <div id="stat-shopify-synced" class="stat-card-val">0</div>
+            <div class="stat-card-sub">Synced from Shopify API</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-title">WooCommerce Imports</span>
+            <div id="stat-wc-synced" class="stat-card-val">0</div>
+            <div class="stat-card-sub">Synced from WooCommerce API</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-title">WhatsApp Enquiries</span>
+            <div id="stat-wa-enquiries" class="stat-card-val">0</div>
+            <div class="stat-card-sub">Customer conversion triggers</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-title">Product Views</span>
+            <div id="stat-prod-views" class="stat-card-val">0</div>
+            <div class="stat-card-sub">Customer browsing activity</div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">Recent Synchronization Operations</h3>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sync ID</th>
+                  <th>Source</th>
+                  <th>Status</th>
+                  <th>Items Fetched</th>
+                  <th>Changes Detected</th>
+                  <th>Duration</th>
+                </tr>
+              </thead>
+              <tbody id="overview-recent-syncs-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: PRODUCTS -->
+      <section id="tab-view-products" class="tab-view" style="display:none;">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+              <input type="text" id="admin-search-products" class="form-input" placeholder="Search lamp name or SKU..." style="width:240px;" />
+              <select id="admin-source-filter" class="form-select" style="width:160px;">
+                <option value="">All Sources</option>
+                <option value="shopify">Shopify Only</option>
+                <option value="woocommerce">WooCommerce Only</option>
+                <option value="manual">Manual Only</option>
+              </select>
+            </div>
+            <button id="btn-new-product" class="btn btn-primary" style="font-size:0.85rem; min-height:38px;">
+              ＋ Add Lamp / Light
+            </button>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Lamp Details</th>
+                  <th>Category</th>
+                  <th>Price (₹)</th>
+                  <th>Stock Status</th>
+                  <th>Active</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-tbody">
+                <!-- Populated via admin.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div style="padding:1rem; display:flex; align-items:center; justify-content:space-between; border-top:1px solid #e2e8f0;">
+            <span id="products-pagination-info" style="font-size:0.85rem; color:#64748b;">Loading...</span>
+            <div style="display:flex; gap:0.5rem;">
+              <button id="btn-prev-page" class="btn btn-outline" style="min-height:34px; padding:0 0.75rem; font-size:0.8rem;">Previous</button>
+              <button id="btn-next-page" class="btn btn-outline" style="min-height:34px; padding:0 0.75rem; font-size:0.8rem;">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CATEGORIES -->
+      <section id="tab-view-categories" class="tab-view" style="display:none;">
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:1.5rem;">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3 class="admin-card-title">Create Category</h3>
+            </div>
+            <div class="admin-card-body">
+              <form id="category-form">
+                <div class="form-group">
+                  <label class="form-label">Category Name</label>
+                  <input type="text" id="cat-name" class="form-input" required placeholder="e.g. Cordless Bedside Lights" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Slug (Optional)</label>
+                  <input type="text" id="cat-slug" class="form-input" placeholder="e.g. cordless-bedside-lights" />
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; min-height:40px;">
+                  Create Category
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3 class="admin-card-title">Lighting Categories</h3>
+            </div>
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Category Name</th>
+                    <th>Slug</th>
+                    <th>Product Count</th>
+                    <th>Visibility</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-categories-tbody">
+                  <!-- Populated via admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: SYNCHRONIZATION ENGINE & SOURCE UPDATE SIMULATOR -->
+      <section id="tab-view-sync" class="tab-view" style="display:none;">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">External E-Commerce Lighting Connectors</h3>
+          </div>
+          <div class="admin-card-body">
+            <p style="color:#64748b; font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">
+              Sync engines connect to external Shopify REST Admin APIs and WooCommerce REST API v3 endpoints.
+              The synchronization diff engine inspects content hashes, updates modified prices/stock, and records full audit telemetry.
+            </p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+              <!-- Shopify Connector -->
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                  <h4 style="font-size:1rem; font-weight:700;">Shopify API Integration</h4>
+                  <span class="badge badge-source-shopify">55+ Lighting Products</span>
+                </div>
+                <p style="font-size:0.85rem; color:#64748b; margin-bottom:1rem;">
+                  Connects to Shopify <code>/admin/api/2024-01/products.json</code>. Imports table lamps, kelvin specs, dimming options, and imagery.
+                </p>
+                <button id="btn-sync-shopify" class="btn btn-outline" style="width:100%; border-color:#16a34a; color:#15803d; font-weight:700;">
+                  🔄 Import / Sync Shopify Catalog
+                </button>
+              </div>
+
+              <!-- WooCommerce Connector -->
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                  <h4 style="font-size:1rem; font-weight:700;">WooCommerce API Integration</h4>
+                  <span class="badge badge-source-wc">55+ Lighting Products</span>
+                </div>
+                <p style="font-size:0.85rem; color:#64748b; margin-bottom:1rem;">
+                  Connects to WooCommerce <code>/wp-json/wc/v3/products</code>. Imports attributes, bulb specs, lumens, and glass/metal finishes.
+                </p>
+                <button id="btn-sync-wc" class="btn btn-outline" style="width:100%; border-color:#4338ca; color:#4338ca; font-weight:700;">
+                  🔄 Import / Sync WooCommerce Catalog
+                </button>
+              </div>
+            </div>
+
+            <!-- Sync Progress Bar -->
+            <div id="sync-progress-box" class="sync-progress-box">
+              <div style="font-size:0.85rem; font-weight:700; color:#0f172a;" id="sync-progress-status">Synchronizing...</div>
+              <div class="progress-bar-track">
+                <div id="sync-progress-bar" class="progress-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULATE SOURCE UPDATE (Requirement 19.9) -->
+        <div class="admin-card" style="border:1px solid #f59e0b;">
+          <div class="admin-card-header" style="background:#fffbeb;">
+            <h3 class="admin-card-title" style="color:#92400e;">
+              🧪 Live Demonstration: Source Product Update Simulation (Requirement 19.9)
+            </h3>
+          </div>
+          <div class="admin-card-body">
+            <p style="color:#78350f; font-size:0.875rem; margin-bottom:1rem;">
+              Use this tool to simulate an external change in Shopify or WooCommerce (e.g., promotional price reduction on external store).
+              Then run synchronization to demonstrate diff detection and price updating in the internal catalog.
+            </p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end;">
+              <div class="form-group" style="margin-bottom:0; flex:1; min-width:180px;">
+                <label class="form-label">Target External Source</label>
+                <select id="sim-source" class="form-select">
+                  <option value="shopify">Shopify (#81001 Aura Travertine Table Lamp)</option>
+                  <option value="woocommerce">WooCommerce (#501 Fluted Amber Glass Lamp)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0; flex:1; min-width:180px;">
+                <label class="form-label">New Simulated Price (₹)</label>
+                <input type="number" id="sim-price" class="form-input" value="12999" />
+              </div>
+              <button id="btn-simulate-source-change" class="btn btn-primary" style="min-height:42px; background:#d97706;">
+                ⚡ Apply Change to External Source
+              </button>
+            </div>
+            <div id="sim-result-box" style="margin-top:1rem; display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Sync History Table -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">Synchronization Audit History</h3>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sync ID</th>
+                  <th>Source</th>
+                  <th>Status</th>
+                  <th>Timestamp</th>
+                  <th>Duration</th>
+                  <th>Fetched</th>
+                  <th>Created / Updated / Unchanged</th>
+                  <th>Error Log</th>
+                </tr>
+              </thead>
+              <tbody id="sync-history-tbody">
+                <!-- Populated via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: AUDIT LOG -->
+      <section id="tab-view-audit" class="tab-view" style="display:none;">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">Product Change History &amp; Audit Log</h3>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Product</th>
+                  <th>Action</th>
+                  <th>Diff / Changes</th>
+                  <th>Actor</th>
+                </tr>
+              </thead>
+              <tbody id="audit-log-tbody">
+                <!-- Populated via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: SETTINGS & DESIGNS -->
+      <section id="tab-view-settings" class="tab-view" style="display:none;">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">Store Configuration &amp; Active Catalog Design</h3>
+          </div>
+          <div class="admin-card-body">
+            <form id="settings-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Store Brand Name</label>
+                  <input type="text" id="setting-store-name" class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tagline</label>
+                  <input type="text" id="setting-tagline" class="form-input" />
+                </div>
+              </div>
+
+              <!-- Requirement 8 & 19.11: Select active design from backend -->
+              <div class="form-group" style="background:#f1f5f9; padding:1.25rem; border-radius:10px; border:1px solid #cbd5e1; margin:1rem 0;">
+                <label class="form-label" style="font-size:1rem; color:#0f172a;">
+                  🎨 Active Frontend Catalog Design (Requirement 8)
+                </label>
+                <p style="font-size:0.85rem; color:#64748b; margin-bottom:0.75rem;">
+                  Choose the active design for the customer-facing mobile catalog. The same database and APIs seamlessly serve both designs.
+                </p>
+                <select id="setting-active-design" class="form-select" style="font-size:0.95rem; font-weight:700;">
+                  <option value="rajdhani">Design 1: Lumina Ambient Showcase (Warm Gold &amp; Glass)</option>
+                  <option value="nordic">Design 2: Nordic Minimalist &amp; Studio Lookbook (High-Density Modern)</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">WhatsApp Business Number (with country code)</label>
+                  <input type="text" id="setting-wa-number" class="form-input" placeholder="+919876543210" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Top Banner Announcement</label>
+                  <input type="text" id="setting-banner-text" class="form-input" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">WhatsApp Multi-Product Enquiry Message Template (Requirement 11)</label>
+                <textarea id="setting-wa-template" class="form-textarea" rows="4"></textarea>
+                <small style="color:#64748b;">Use <code>{product_list}</code> where the numbered list of selected items should appear.</small>
+              </div>
+
+              <div class="form-group">
+                <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                  <input type="checkbox" id="setting-banner-active" />
+                  <span style="font-size:0.9rem; font-weight:600;">Enable Announcement Banner on Public Catalog</span>
+                </label>
+              </div>
+
+              <button type="submit" id="btn-save-settings" class="btn btn-primary" style="padding:0.75rem 2rem;">
+                Save Settings
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Edit / Create Product Modal -->
+  <div id="product-form-modal" class="modal-overlay">
+    <div class="modal-container" style="max-width:700px;">
+      <div class="modal-header">
+        <h3 id="prod-modal-title" style="font-size:1.1rem; font-weight:700;">Add Product</h3>
+        <button id="btn-close-product-modal" class="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form">
+          <input type="hidden" id="prod-modal-id" />
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Lamp / Product Name *</label>
+              <input type="text" id="prod-name" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">SKU *</label>
+              <input type="text" id="prod-sku" class="form-input" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Price (₹) *</label>
+              <input type="number" id="prod-price" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Regular Price (₹)</label>
+              <input type="number" id="prod-reg-price" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="prod-category" class="form-select"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Image URL</label>
+            <input type="url" id="prod-image-url" class="form-input" placeholder="https://images.unsplash.com/..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="prod-desc" class="form-textarea" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; min-height:44px;">
+            Save Lamp to Database
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>

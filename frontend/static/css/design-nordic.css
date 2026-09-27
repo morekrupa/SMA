@@ -1,0 +1,363 @@
+/* ==========================================================================
+   Design 2: Nordic Minimalist & Editorial Boutique
+   Characteristics:
+   - High-contrast Scandinavian minimalism (Clean Ivory, Charcoal, Pure White)
+   - Architectural Swiss typography & subtle wire borders
+   - Compact high-density layout options
+   - Sleek editorial lookbook presentation
+   ========================================================================== */
+
+.theme-nordic {
+  --nordic-black: #111111;
+  --nordic-white: #ffffff;
+  --nordic-gray: #f4f4f5;
+  --nordic-border: #e4e4e7;
+  --nordic-muted: #71717a;
+}
+
+/* Minimalist Top Announcement */
+.nordic-announcement {
+  background: #ffffff;
+  color: #18181b;
+  font-size: 0.775rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--nordic-border);
+}
+
+/* Header */
+.nordic-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--nordic-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nordic-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nordic-brand {
+  text-decoration: none;
+  color: #111111;
+}
+
+.nordic-brand h1 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nordic-brand span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--nordic-muted);
+  display: block;
+}
+
+.nordic-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nordic-nav-btn {
+  background: transparent;
+  border: 1px solid var(--nordic-border);
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #18181b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+}
+
+.nordic-nav-btn:hover {
+  background: #18181b;
+  color: white;
+  border-color: #18181b;
+}
+
+/* Category Filter Rail */
+.nordic-filter-rail {
+  background: var(--nordic-gray);
+  border-bottom: 1px solid var(--nordic-border);
+  padding: 0.6rem 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nordic-filter-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.nordic-filter-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.nordic-chip {
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #52525b;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.nordic-chip:hover {
+  color: #18181b;
+}
+
+.nordic-chip.active {
+  background: #ffffff;
+  color: #18181b;
+  border-color: var(--nordic-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Controls Bar */
+.nordic-controls {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .nordic-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.nordic-search-input {
+  width: 100%;
+  max-width: 400px;
+  height: 42px;
+  padding: 0 1rem;
+  background: #ffffff;
+  border: 1px solid var(--nordic-border);
+  border-radius: 2px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.nordic-search-input:focus {
+  border-color: #18181b;
+}
+
+.nordic-sort-select {
+  height: 42px;
+  padding: 0 1rem;
+  background: #ffffff;
+  border: 1px solid var(--nordic-border);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  color: #18181b;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Product Grid (Editorial layout) */
+.nordic-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+.nordic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .nordic-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nordic-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Nordic Card */
+.nordic-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+}
+
+.nordic-card-img-box {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--nordic-gray);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.nordic-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nordic-card:hover .nordic-card-img {
+  transform: scale(1.04);
+}
+
+.nordic-select-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--nordic-border);
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nordic-select-badge.selected {
+  background: #18181b;
+  color: white;
+  border-color: #18181b;
+}
+
+.nordic-wish-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--nordic-border);
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #71717a;
+}
+
+.nordic-wish-badge.active {
+  color: #ef4444;
+}
+
+.nordic-card-info {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.nordic-card-cat {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--nordic-muted);
+  margin-bottom: 0.25rem;
+}
+
+.nordic-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #18181b;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+}
+
+.nordic-card-title:hover {
+  text-decoration: underline;
+}
+
+.nordic-card-price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 0.75rem;
+}
+
+.nordic-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.nordic-btn-action {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid #18181b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.nordic-btn-action:hover {
+  background: #18181b;
+  color: white;
+}
+
+.nordic-btn-wa-direct {
+  background: #25D366;
+  border: 1px solid #25D366;
+  color: white;
+}
+
+.nordic-btn-wa-direct:hover {
+  background: #1ebd5b;
+  border-color: #1ebd5b;
+}
